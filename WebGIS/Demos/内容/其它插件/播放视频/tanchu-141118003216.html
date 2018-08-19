@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="reveal.css">
+<script type="text/javascript" src="jquery-1.js"></script>
+<script type="text/javascript" src="jquery_003.js"></script>
+<script type="text/javascript" src="jquery_002.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+	var media1 = '<a class="media" href="1.flv"></a>';
+
+	var media2 = '<a class="media" href="2.mp3"></a>';
+
+	$('#img1').bind("click",function(){
+
+		$('#myModal').prepend(media1);
+
+		$('.media').media({ width:600, height:450});
+
+	});
+
+	$("#img2").bind("click",function(){
+
+		$('#myModal').prepend(media2);
+
+		$('.media').media( { width:600, height:20} );
+
+	});
+
+});
+
+</script>
+</head>
+<body>
+<p>点击第一张图片播放视频，点击第二张图片播放音乐</p>
+<a href="#" data-reveal-id="myModal">
+<img id="img1" src="1.jpg">
+<img id="img2" src="2.jpg">
+</a>
+<div id="myModal" class="reveal-modal">
+<a class="close-reveal-modal">×</a>
+</div>
+
+
+</body></html>

@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>toast提示-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<style>
+/* toast start */
+@-webkit-keyframes toastAnimation {
+	0% {
+	opacity:1;
+}
+25% {
+	opacity:0.75;
+}
+50% {
+	opacity:0.5;
+}
+75% {
+	opacity:0.25;
+}
+100% {
+	opacity:0;
+}
+}@keyframes toastAnimation {
+	0% {
+	opacity:1;
+}
+25% {
+	opacity:0.75;
+}
+50% {
+	opacity:0.5;
+}
+75% {
+	opacity:0.25;
+}
+100% {
+	opacity:0;
+}
+}.toast-message {
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	width:60%;
+	padding:30px 0;
+	background-color:rgba(0,0,0,0.5);
+	box-shadow:0 8px 16px 0 rgba(51,51,51,0.30);
+	border-radius:8px;
+	position:fixed;
+	z-index:9999;
+	left:20%;
+	/*-webkit-animation:toastAnimation 1.5s ease-in 0s 1 normal;
+	*/
+	/*animation:toastAnimation 1.5s ease-in 0s 1 normal;
+	*/
+}
+/* toast end */</style>
+</head>
+<body>
+<button id="showToast">此按钮是测试toast的例子</button>
+
+<script>
+$("#showToast").click(function() {
+    toastMsg('toast提示成功');
+});
+
+
+/* _Toast --start */
+function toastMsg(msg) {
+    if ($("div").is("#toastMessage")) {
+        $("#toastMessage").remove();
+    }
+
+    var msgDiv = '<div id="toastMessage" class="toast-message">' +
+        '<span>' + msg + '</span>' +
+        '</div>';
+    $("body").append(msgDiv);
+
+    //set #toastMessage of top
+    //计算屏幕的高度，并让toast提示框显示在屏幕的中间
+    var screenHeight = window.innerHeight;
+    var toastMessage = $("#toastMessage");
+    var toastHeight = toastMessage.height();
+    var top = (screenHeight / 2) - (toastHeight / 2) + "px";
+    toastMessage.css("top", top);
+
+    setTimeout(function() {
+        $("#toastMessage").remove();
+    }, 1500);
+}
+/* _Toast --end */
+</script>
+
+</body>
+</html>

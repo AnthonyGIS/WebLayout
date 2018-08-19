@@ -1,0 +1,20 @@
+后台模拟数据留言区。
+只需要提供一个json格式的数据就好。
+数据格式为以Object为对象的数组：
+var data = [{
+    url: "javascript:void(0)",
+    text: "北国冰封，千里冰封，万里雪飘"
+},
+{
+    url: "javascript:void(0)",
+    text: "待从头收拾旧山河，朝天阙"
+},
+{
+    url: "javascript:void(0)",
+    text: "但愿人长久千里共婵娟"
+},
+{
+    url: "javascript:void(0)",
+    text: "才下船头却上心头"
+}];
+

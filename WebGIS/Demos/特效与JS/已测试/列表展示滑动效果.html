@@ -1,0 +1,224 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery列表展示滑动效果</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-family:'微软雅黑';
+}
+.slideList {
+	margin:100px auto;
+	height:600px;
+	overflow:hidden;
+	max-width:1600px;
+}
+.slideList ul {
+	display:block;
+	position:relative;
+	margin:0px auto 30px;
+	overflow:hidden;
+	left:16px;
+}
+.slideList ul>li {
+	list-style:none;
+	float:left;
+	width:23%;
+	display:block;
+	text-align:center;
+	margin:0px 9px;
+}
+.slideList .itembox {
+	display:block;
+}
+.slideList .itembox {
+	position:relative;
+}
+.slideList .layer {
+	position:absolute;
+	background:rgba(0,0,0,0.5);
+	width:100%;
+	height:100%;
+	z-index:1;
+	top:0;
+	color:#fff;
+	display:none;
+}
+.slideList .layer > div {
+	position:absolute;
+	top:40%;
+	left:50%;
+	transform:translateY(-40%);
+	transform:translateX(-50%);
+}
+.slideList .layer > div p {
+	line-height:28px;
+}
+.slideList .layer > div span {
+	border-bottom:2px solid #fff;
+	width:30px;
+	display:block;
+	margin:5px auto;
+}
+.slideList ul>li img {
+	width:100%;
+	height:auto;
+	z-index:-999;
+	display:block;
+}
+.slideList .txt {
+	margin-top:20px;
+}
+.slideList .txt span {
+	color:#707070;
+	display:block;
+	margin-bottom:5px;
+}
+.slideList .lineBox {
+	position:absolute;
+	width:96%;
+	height:23px;
+	border:1px solid #9a9a9a;
+	background:#e4e4e4;
+	border-radius:50px;
+	z-index:-999;
+	margin:0 auto;
+	left:50%;
+	transform:translateX(-50%);
+}
+.slideList .line {
+	position:absolute;
+	width:23%;
+	height:14px;
+	border-radius:50px;
+	background-color:#9a9a9a;
+	left:10px;
+	z-index:999;
+	box-shadow:0 0 3px #666;
+	top:50%;
+	transform:translateY(-50%);
+}
+</style>
+</head>
+<body>
+<div class="slideList">
+    <ul>
+        <li class="li-one">
+            <a href="###" class="itembox">
+                <img src="http://www.jq22.com/img/cs/500x500-1.png">
+                <div class="layer">
+                    <div>
+                        <p>Efficent expand</p>
+                        <p>高效发展</p>
+                        <span></span>
+                    </div>
+                </div>
+            </a>
+            <div class="txt">
+                <span>Efficent expand</span>
+                <p>高效发展</p>
+            </div>
+        </li>
+
+        <li class="li-two">
+            <a href="###" class="itembox">
+                <img src="http://www.jq22.com/img/cs/500x500-2.png">
+                <div class="layer">
+                    <div>
+                        <p>Efficent expand</p>
+                        <p>高效发展</p>
+                        <span></span>
+                    </div>
+                </div>
+            </a>
+            <div class="txt">
+                <span>Efficent expand</span>
+                <p>高效发展</p>
+            </div>
+        </li>
+
+        <li class="li-three">
+            <a href="###" class="itembox">
+                <img src="http://www.jq22.com/img/cs/500x500-3.png">
+                <div class="layer">
+                    <div>
+                        <p>Efficent expand</p>
+                        <p>高效发展</p>
+                        <span></span>
+                    </div>
+                </div>
+            </a>
+            <div class="txt">
+                <span>Efficent expand</span>
+                <p>高效发展</p>
+            </div>
+        </li>
+
+        <li class="li-four">
+            <a href="###" class="itembox">
+                <img src="http://www.jq22.com/img/cs/500x500-4.png">
+                <div class="layer">
+                    <div>
+                        <p>Efficent expand</p>
+                        <p>高效发展</p>
+                        <span></span>
+                    </div>
+                </div>
+            </a>
+            <div class="txt">
+                <span>Efficent expand</span>
+                <p>高效发展</p>
+            </div>
+        </li>
+    </ul>
+    <div class="lineBox">
+        <span class="line"></span>
+    </div>
+</div>
+
+<script>
+$(function() {
+    var line = $(".line");
+
+    //进度条滑动
+    $(".li-one").mouseenter(function() {
+        line.stop().animate({
+            left: '10px'
+        }, 300);
+    });
+
+    $(".li-two").mouseenter(function() {
+        line.stop().animate({
+            left: '25%'
+        }, 300)
+    });
+
+    $(".li-three").mouseenter(function() {
+        line.stop().animate({
+            left: "52%"
+        }, 300)
+    });
+
+    $(".li-four").mouseenter(function() {
+        line.stop().animate({
+            left: "76%"
+        }, 300)
+    });
+
+    //显示层
+    $(".itembox").hover(function() {
+        $(this).find('div.layer').stop().fadeIn(300);
+    }, function() {
+        $('div.layer').fadeOut();
+
+    });
+})
+</script>
+
+</body>
+</html>

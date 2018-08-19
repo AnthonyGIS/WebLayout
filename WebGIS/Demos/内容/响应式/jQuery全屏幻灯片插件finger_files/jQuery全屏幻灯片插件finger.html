@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="" class=" js canvas canvastext no-touch rgba backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations cssgradients csstransforms csstransforms3d csstransitions fontface"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery全屏幻灯片插件finger</title>
+<style>
+
+html {
+
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+
+	background-color: #fff;
+
+	font-weight: 300;
+
+}
+
+body {
+
+	margin: 0px;
+
+	padding: 0px;
+
+}
+
+a, a:visited {
+
+	color: #E54028;
+
+	text-decoration: none;
+
+}
+
+a:hover {
+
+	color: #c22d18;
+
+	text-decoration: underline;
+
+	cursor: pointer;
+
+}
+
+</style>
+
+<script src="jquery-v1.js" type="text/javascript"></script>
+<script src="modernizr-custom-v2.js" type="text/javascript"></script>
+<script src="jquery-finger-v0.js" type="text/javascript"></script>
+
+<link href="flickerplate.css" type="text/css" rel="stylesheet">
+<script src="flickerplate.js" type="text/javascript"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('.flicker-example').flicker();
+
+});
+
+</script>
+</head>
+<body>
+<div class="flicker-example flickerplate animate-transition-slide flicker-theme-light" data-block-text="false" data-flick-position="0"><div class="dot-navigation center"><ul><li><div class="dot active"></div></li><li><div class="dot"></div></li><li><div class="dot"></div></li></ul></div><div class="arrow-navigation left"><div class="arrow"></div></div><div class="arrow-navigation right"><div class="arrow"></div></div>
+<ul class="flicks" style="left:-000%;">
+<li data-background="img/field.jpg" class="first-flick" style="background-image: url(&quot;img/field.jpg&quot;);"><div class="flick-inner"><div class="flick-content">
+<div class="flick-title">Flickerplate Is Working</div>
+<div class="flick-sub-text">Heaven forbid this package you downloaded is broken. That wouldn't be embarrassing at all.</div>
+</div></div></li>
+<li data-background="img/forest.jpg" style="background-image: url(&quot;img/forest.jpg&quot;);"><div class="flick-inner"><div class="flick-content">
+<div class="flick-title">Editable via Javascript or CSS</div>
+<div class="flick-sub-text">Take a look at the extensive documentation to see how you can change the settings in multiple ways.</div>
+</div></div></li>
+<li data-background="img/frozen-water.jpg" style="background-image: url(&quot;img/frozen-water.jpg&quot;);"><div class="flick-inner"><div class="flick-content">
+<div class="flick-title">Touch Enabled Through the jQuery Finger Library</div>
+<div class="flick-sub-text">jQuery Finger is a great touch library that has been included as part of the Flickerplate package.</div>
+</div></div></li>
+</ul>
+</div>
+
+
+</body></html>

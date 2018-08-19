@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+        html,body,ul,li,div,p{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            /*margin-top:200px ;*/
+        }
+        ul li{
+            /*overflow: hidden;*/
+            list-style: none;
+            float: left;
+            margin-left:130px ;
+            width: 300px;
+            height: 225px;
+            position: relative;
+            margin-top: 100px;
+        }
+        ul li a img{
+            width: 100%;
+            height: auto;
+        }
+        ul li span{
+            display: none;
+            width: 300px;
+            height: 0px;
+            background: #000;
+            opacity: 0.6;
+            position: absolute;
+            bottom: 0;
+        }
+        ul li span p{
+            color: #FFF;
+        }
+        .menu{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 260px;
+            height: 200px;
+        }
+        .menu div{
+            position: absolute;
+            background: #F00;
+            width: 130px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #FFF;
+        }
+        .menu .buy{
+            left: 0;
+        }
+        .menu .close{
+            right: 0;
+        }
+        .menu .cart{
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<ul class="wrappers">
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: none; right: -130px; top: -100px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: none; right: -130px; top: -100px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: none; right: 0px; top: 0px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: none; right: -130px; top: -100px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: block; right: -130px; top: -100px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+<li>
+<a href="#">
+<img src="img.jpg" alt="">
+</a>
+<span class="showDetail" style="display: inline-block; height: 0px;">
+<p>1111</p>
+<p>2222</p>
+<p>3333</p>
+</span>
+<div class="menu" style="display: none; right: 0px; top: 0px;" value="open">
+<div class="buy">购买</div>
+<div class="close">关闭</div>
+<div class="cart">购物车</div>
+</div>
+</li>
+</ul>
+
+
+<script src="jquery-1.js"></script>
+<script>
+    $('.wrappers li').hover(
+            (function(){
+                $(this).find('.showDetail').css('display','inline-block');
+                $(this).find('.showDetail').stop().animate({height:'120px'},500);
+            }),
+            (function(){
+                $(this).find('.showDetail').stop().animate({height:'0px'},500,function(){
+                    $(this).find('.showDetail').css("display","none");
+                });
+
+            })
+    );
+    $(".wrappers li").click(function(){
+
+
+if( $('.menu').attr('value')=="close"){
+    return;
+}
+        $('.menu').css('display','none');
+        $(this).find('.menu').css('display','block');
+        $(this).find('.menu').animate({right:'-130',top:'-100px'},1000);
+
+    });
+    $(".close").click(function(){
+        $('.menu').animate({right:'0',top:'0'},1000,function(){
+            $('.menu').attr('value','open');
+            $('.menu').css('display','none');
+        });
+        $('.menu').attr('value','close');
+
+    });
+</script></body></html>

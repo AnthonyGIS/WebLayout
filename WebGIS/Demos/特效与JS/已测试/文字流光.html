@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文字流光效果</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        .masked h4 {
+            display: block;
+            width: 600px;
+            height: 900px;
+            /*渐变背景，此处为能无缝拼接的渐变 即0~100%*/ /*linear-gradient(线性渐变)*/
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            color: transparent;
+            /*文字填充色为透明*/
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            /* background-clip 规定背景的绘制区域：*/ /*背景剪裁为文字，相当于用背景填充文字 CSS3新属性*/
+            -webkit-background-size: 200% 100%;
+            /*背景图片向水平方向扩大一倍，这样background-position才有移动与变化的空间*/
+            background-size: 200% 100%;
+            /* 动画 */
+            -webkit-animation: masked-animation 4s infinite linear;
+        }
+
+        @keyframes masked-animation {
+            0% {
+                background-position: 0 0;
+                /*background-position 属性设置背景图像的起始位置。*/
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        @-webkit-keyframes masked-animation {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }</style>
+</head>
+<body>
+<div class="masked">
+    <h4>
+        一封信两年未都没动笔<br> 　　三个字过了几个四季
+        <br> 　　你是有多想逃避
+        <br> 　　来不及问问你
+        <br> 　　我已经错过相爱的日期
+        <br> 　　那天你
+        <br> 　　消失在人海里
+        <br> 　　你的背影
+        <br> 　　沉默的让人恐惧
+        <br> 　　你说的那些问题
+        <br> 　　我回答得很坚定
+        <br> 　　偏偏那个时候我最想你
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　已经给你写了信
+        <br> 　　又被我丢进海里
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　明明觉得自己很冷静
+        <br> 　　却还掉入我自己的陷阱
+        <br> 　　那天你
+        <br> 　　消失在人海里
+        <br> 　　你的背影沉默的让人恐惧
+        <br> 　　你说的那些问题
+        <br> 　　我回答的很坚定
+        <br> 　　偏偏那个时候我最想你
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　已经给你写了信
+        <br> 　　又被我丢进海里
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　明明觉得自己很冷静
+        <br> 　　却还掉入我自己的陷阱
+        <br> 　　一个人的夜里
+        <br> 　　想的太多
+        <br> 　　离开我你的生活
+        <br> 　　不再寂寞
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　已经给你写了信
+        <br> 　　又被我丢进海里
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　已经给你写了信
+        <br> 　　又被我丢进海里
+        <br> 　　我不曾爱过你
+        <br> 　　我自己骗自己
+        <br> 　　却还掉入我自己的陷阱
+    </h4>
+</div>
+</body>
+</html>

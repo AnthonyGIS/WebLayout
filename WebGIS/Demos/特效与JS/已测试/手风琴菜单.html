@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery手风琴菜单</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<style>
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.nav {
+	width:200px;
+	margin:100px auto;
+}
+.nav>li {
+	border:1px solid #000;
+	line-height:35px;
+	border-bottom:none;
+	text-indent:15px;
+	/*文字间隔*/
+}
+.nav>li:last-child {
+	border-bottom:1px solid #000;
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.nav>li:first-child {
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+}
+.sub {
+	display:none;
+}
+.sub>li {
+	background:pink;
+	border:1px solid white;
+}
+.sub>li:hover {
+	background:#f40;
+}
+</style>
+</head>
+<body>
+<ul class="nav">
+    <li>
+        一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="sub">
+            <li>子菜单</li>
+            <li>子菜单</li>
+            <li>子菜单</li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+$(".nav>li").click(function() {
+    var $sub = $(this).children(".sub");
+    //让二级菜单展开
+    $sub.slideToggle(500);
+    // //拿到非当前二级菜单
+    var $otherSub = $(this).siblings().children(".sub");
+    //让所有非当前二级菜单收起
+    $otherSub.slideUp(500);
+});
+$(".sub>li").click(function() {
+    return false;
+})
+</script>
+
+</body>
+</html>

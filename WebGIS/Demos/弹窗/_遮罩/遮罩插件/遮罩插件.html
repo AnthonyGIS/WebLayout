@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <title>遮罩插件</title>
+    <link href="index.css" rel="stylesheet">
+    <script src="jquery-1.js"></script>
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="jquery-DJMask.js" charset="UTF-8"></script>
+</head>
+<body>
+<div class="container">
+    <div class="left menu" style="height: 728px; width: 250px; position: fixed;">
+        <div class="menu-tit">DJMask使用文档</div>
+        <div class="slide-left" style="display: none;"><img src="left.png"></div>
+        <div class="menu-list">
+            <li><a href="#sm">说明</a></li>
+            <li><a href="#syff">使用方法</a>
+                <a href="#dkzz" class="list-child">|---(1).打开遮罩</a>
+                <a href="#gbzz" class="list-child">|---(2).关闭遮罩</a>
+                <a href="#dddh" class="list-child">|---(3).等待动画</a>
+                <a href="#dddh" class="list-child">|---(4).信息提示</a>
+                <a href="#dddh" class="list-child">|---(5).alert提醒</a>
+                <a href="#dddh" class="list-child">|---(6).弹出框</a>
+            </li>
+        </div>
+    </div>
+    <div class="left content" style="height: 728px; width: 1153px; margin-left: 250px;">
+        <h1 id="sm">说明：</h1>
+        <p>
+            DJMask是由东经科技前端小组开发的一款遮罩插件，其小巧灵活，在项目开发中方便实用，一度被IT技术中心开发人员赞许推广。使用方式也特别简单，只需要引入一个js文件，该插件基于JQuery开发，所以使用之前需要引入JQuery文件。</p>
+        <br>
+        <h1 id="syff">使用方法：</h1>
+        <p id="dkzz">(1).打开遮罩</p>
+        <p>打开遮罩：DJMask.show()</p>
+        <p><input value="打开遮罩(2s后自动关闭)" onclick="DJMask.show();setTimeout(function(){DJMask.closeAll();},2000)"
+                  type="button"></p>
+        <hr>
+        <p id="gbzz">(2).关闭遮罩</p>
+        <p>关闭遮罩：DJMask.closeAll()</p>
+        <hr>
+        <p id="dddh">(3).等待动画</p>
+        <p>打开等待动画：DJMask.loading()</p>
+        <p>关闭等待动画：DJMask.loading("close")</p>
+        <p><input value="打开等待动画(2s后自动关闭)" onclick="DJMask.loading();setTimeout(function(){DJMask.closeAll();},2000)"
+                  type="button"></p>
+        <hr>
+        <p id="xxts">(4).信息提示</p>
+        <p>信息提示：DJMask.msg("你好！")</p>
+        <p><input value="你好" onclick='DJMask.msg("你好！")' type="button"></p>
+        <hr>
+        <p id="attx">(5).alert提醒</p>
+        <p>alert提醒：DJMask.alert("你好,Mo")</p>
+        <p>单击确定按钮执行回调函数：
+        </p>
+        <pre>	DJMask.alert("你好,Mo",function(){
+	DJMask.msg("你点击了确定")
+	});</pre>
+        <p></p>
+        <p><input value="提醒" onclick='DJMask.alert("你好,Mo",function(){DJMask.msg("你点击了确定")})' type="button"></p>
+        <hr>
+        <p id="tck">(6).弹出框</p>
+        <p>默认弹出：DJMask.open()</p>
+        <p>参数配置：
+        </p>
+        <pre>　　　　　　DJMask.open({
+		　　width:"500px",
+		　　height:"300px",
+		　　title:"你好，DJMask",
+		　　content:"欢迎使用DJMask"
+	　　});</pre>
+        注：content里可以是文本、DOM元素、或者iframe等。
+        <p></p>
+        <p>
+            <input value="默认弹出框" onclick="DJMask.open()" type="button">　
+            <input value="参数配置弹出框" onclick='DJMask.open({
+					width:"500px",
+		　　			height:"300px",
+		　　			title:"你好，DJMask",
+		　　			content:"欢迎使用DJMask"
+				})' type="button">
+        </p>
+        <hr>
+        <p>文档编辑时间：2017年7月31日 晚</p>
+        <p>BY：Mo</p>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+
+        windowStyle();
+        menuAnimate();
+        $(window).resize(function () {
+            windowStyle();
+            menuAnimate();
+        });
+        $(window).scroll(function () {
+            $(".menu").css("position", "fixed");
+        });
+
+    });
+
+    function windowStyle() {
+        var windowW = $(window).width();
+        var windowH = $(window).height();
+        $(".menu,.content").height(windowH);
+        $(".content").width(windowW - $(".menu").width() - 116);
+    }
+
+    function menuAnimate() {
+        var speed = 300;
+        $(".slide-left").toggle(function () {
+            $("div[class^=menu-]").hide();
+            $(".menu").stop().animate({"width": 0}, speed, function () {
+                $(this).animate({"width": "50px"}, speed, function () {
+                    $(".content").animate({"margin-left": "50px"}, speed);
+                }).find("img").attr("src", "images/right.png");
+
+            });
+        }, function () {
+            $(".menu").stop().animate({"width": "250px"}, speed, function () {
+                $(this).find("img").attr("src", "images/left.png");
+                $("div[class^=menu-]").fadeIn();
+                $(".content").animate({"margin-left": "250px"}, speed);
+            });
+        });
+    }
+</script>
+</body>
+</html>

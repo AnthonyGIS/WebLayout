@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="网站常用效果插件">
+<meta name="keywords" content="网站常用效果插件"></head><body>&gt;
+<title>网站常用效果插件</title>
+<link href="Style.css" rel="stylesheet">
+<script src="jquery-1.js"></script>
+<script src="Custom.js"></script>
+
+
+<div class="Head">
+<div class="main"></div>
+</div>
+<div class="Sub">
+<div class="main w">
+<div class="limit">
+<div class="title">页面meta设置</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+是否启用Ie6提示：&lt;meta name="ie6Prompts" content="true" /&gt;<br>
+是否禁用鼠标右键：&lt;meta name="rightMouseButton" content="true" /&gt;<br>
+是否启用返回顶部按钮：&lt;meta name="toTop" content="true" /&gt;<br>
+是否启用版权信息：&lt;meta name="Copyright" content="true" /&gt;<br>
+是否启用双击滚屏：&lt;meta name="DClickScrolling" content="true" /&gt;<br>
+是否启用网站变灰：&lt;meta name="GrayPage" content="true" /&gt;<br>
+是否开启网站维护中提示灰：&lt;meta name="Egis" content="true" /&gt;<br>
+</p>
+</div>
+</div>
+<div class="limit">
+<div class="title">截取字符串</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;img dsh="limit" num="10" &gt;&lt;/li&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').limit('8');
+</p>
+</div>
+<div class="preview">
+<li dsh="limit" num="10" title="演示文字：从前有坐山，山有有坐庙，庙里有个插件。">演示文字：从前有坐山...</li>
+</div>
+</div>
+<div class="imgAuto">
+<div class="title">等比例缩放图片</div>
+<div class="content">
+<p>HTML使用方法:</p>
+&lt;p dsh="imgAuto" width="80" height="100" &gt;
+&lt;img src="..."&gt;&lt;/li&gt;
+&lt;/p&gt;
+<p>JS使用方法</p>
+<p>
+$('img,div img,p img,li img,span img...').imgAuto(80,100);
+</p>
+</div>
+<div class="preview" dsh="imgAuto" style="width:200px;height:350px;border:1px solid #ccc; text-align:center;" width="200" height="350">
+<img src="test.jpg" style="width: 200px; height: 136px; margin-top: 107px;">
+</div>
+</div>
+<div class="GetTime">
+<div class="title">获取系统时间</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="time" wel="欢迎光临，今天是："&gt;正在加载...&lt;/div&gt;<br>
+&lt;input type="text" dsh="time" value="正在加载..."&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+div等元素：setInterval(function(){$('div]').eq(i).GetTime('欢迎光临，今天是：','1');},1000);<br>
+文本框：setInterval(function(){$('input').GetTime('','1','input')},1000);
+</p>
+</div>
+<div class="preview">
+<div dsh="time" wel="欢迎光临，今天是：">晚上好！欢迎光临，今天是：2018年8月14日  星期二 22 : 22 : 49</div>
+<div><input dsh="time" value="2018-8-14 22:22:49" type="text"></div>
+</div>
+</div>
+<div class="tab">
+<div class="title">Tab菜单切换</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="tab" event="click"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div switchtab&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a tab&gt;a&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a tab&gt;b&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a tab&gt;c&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div switchblock&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p block&gt;a&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p block&gt;b&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p block&gt;c&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div').tab('切换菜单标签','菜单选中样式','被切换标签容器','被切换标签','事件：click/hover');
+</p>
+</div>
+<div class="preview">
+<div dsh="tab" event="click">
+<div switchtab="">
+<a tab="" style="cursor: pointer;" s="0" class="focus">a</a>
+<a tab="" style="cursor: pointer;" s="1">b</a>
+<a tab="" style="cursor: pointer;" s="2">c</a>
+</div>
+<div switchblock="">
+<p block="" style="display: block;">a</p>
+<p block="" style="display: none;">b</p>
+<p block="" style="display: none;">c</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tool">
+<div class="title">设为首页加入收藏</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="sc"&gt;&lt;/div&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('img,div img,p img,li img,span img...').tool('设为首页','间隔内容','加入收藏');
+</p>
+</div>
+<div class="preview">
+<div dsh="sc"><a onclick="javascript:window.external.addFavorite('http://www.jq22.com/demo/DshWebSite-web-150103231853/','网站常用效果插件')" title="加入收藏">加入收藏</a>   <a title="设为首页" onclick="javascript:SetHome(http://www.jq22.com/demo/DshWebSite-web-150103231853/)">设为首页</a></div>
+</div>
+</div>
+<div class="icc">
+<div class="title">文章列表格行换色</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;ul dsh="icc"&gt;<br>
+&lt;li listtag&gt;演示文字：从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+&lt;li listtag&gt;演示文字：从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+&lt;li listtag&gt;演示文字：从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+&lt;li listtag&gt;演示文字：从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+&lt;li listtag&gt;演示文字：从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+&lt;/ul&gt;<br>
+&lt;style&gt;<br>
+.icc li.focusstyle{ background:#0CF;}<br>
+.icc li.basestyle{ background:#FF9;}<br>
+.icc li.evenstyle{ background:#CF9;}<br>
+&lt;/style&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('img,div img,p img,li img,span img...').arlist('列表项标记','焦点行样式','偶数行样式','基数行样式');
+</p>
+</div>
+<div class="preview">
+<ul dsh="icc">
+<li listtag="" class="basestyle" s="0">演示文字：从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li listtag="" class="evenstyle" s="1">演示文字：从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li listtag="" class="basestyle" s="2">演示文字：从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li listtag="" class="focusstyle" s="3">演示文字：从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li listtag="" class="basestyle" s="4">演示文字：从前有坐山，山有有坐庙，庙里有个插件。</li>
+</ul>
+</div>
+</div>
+<div class="qq">
+<div class="title">创建在线QQ</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;em dsh="qq" qq="1594125370111,1"&gt;&lt;/em&gt;<br>
+&lt;em dsh="qq" qq="1594125370111,2"&gt;&lt;/em&gt;<br>
+&lt;em dsh="qq" qq="1594125370111,3"&gt;&lt;/em&gt;<br>
+&lt;em dsh="qq" qq="1594125370111,4"&gt;&lt;/em&gt;<br>
+&lt;em dsh="qq" qq="1594125370111,5"&gt;&lt;/em&gt;<br>
+&lt;em dsh="qq" qq="1594125370111,6"&gt;&lt;/em&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').qq('QQ号','样式编号（1-17，41-50）');
+</p>
+</div>
+<div class="preview">
+<em dsh="qq" qq="1594125370111,1"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1594125370111&amp;site=qq&amp;menu=yes"><img src="%E7%BD%91%E7%AB%99%E5%B8%B8%E7%94%A8%E6%95%88%E6%9E%9C%E6%8F%92%E4%BB%B6_files/pa.html" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a></em>
+</div>
+</div>
+<div class="colsewindow">
+<div class="title">关闭浏览器窗口</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;a dsh="closewindow"&gt;关闭窗口&lt;/a&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').click(function(){$.colsewindow()});
+</p>
+</div>
+<div class="preview">
+<a dsh="closewindow">关闭窗口</a>
+</div>
+</div>
+<div class="RequestQueryString">
+<div class="title">获取URL中的参数值</div>
+<div class="content">
+<p>JS使用方法</p>
+<p>
+RequestQueryString['i'];
+</p>
+</div>
+</div>
+<div class="roll">
+<div class="title">左右无缝滚动</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="roll"&gt;<br>
+&lt;img src="Images/test.jpg" width="60" /&gt;<br>
+&lt;img src="Images/test.jpg" width="60" /&gt;<br>
+&lt;img src="Images/test.jpg" width="60" /&gt;<br>
+&lt;img src="Images/test.jpg" width="60" /&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').roll();
+</p>
+</div>
+<div class="preview">
+<div dsh="roll" style="overflow: hidden;"><div class="rollDiv" style="width: 9999px;"><div style="float: left;">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+</div>
+<div style="float: left;">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+<img src="test.jpg" width="60">
+</div></div></div>
+</div>
+</div>
+<div class="rollTop">
+<div class="title">滚屏效果上下（带控制）</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="rollTop" line="4" speed="200" timer="3000"&gt;<br>
+&lt;div btnt&gt;上上上&lt;/div&gt;<br>
+&lt;div roll style="height:100px; overflow:hidden;"&gt;<br>
+&lt;ul&gt;<br>
+&lt;li&gt;从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+...<br>
+&lt;/ul&gt;<br>
+&lt;/div&gt;<br>
+&lt;div btnb&gt;下下下&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').rollTop({line:滚动行数,speed:速度,timer:时间间隔,up:"上按钮",down:"下按钮"});<br>
+$('div,p,li,span...').rollTop({line:滚动行数,speed:速度,timer:时间间隔});
+</p>
+</div>
+<div class="preview">
+<div dsh="rollTop" line="1" speed="500" timer="3000">
+<div btnt="" style="cursor: pointer;">上上上</div>
+<div roll="" style="height:100px; overflow:hidden;">
+<ul style="margin-top: -1px;">
+
+
+
+
+
+
+
+
+
+
+<li>今天在地铁上，有个暴露狂太嚣张了，旁边却没有一个人敢去开口说他，当时真觉得这个民族正义感已经死了。。。后来我实在受不了了，愤怒的冲了上去，拔下他的奶嘴厉声呵斥道："下次不许穿开裆裤！ "</li>
+<li>舍友理完发回来对我说："理完发就是不一样，感觉整个脑袋都比以前轻了不少呢。"我看了看他，说："你耳朵被剪掉一半了哥，现在去医院还来得及"。</li>
+<li>从前有坐山，山有有坐庙，庙里有个插件。</li><li>初中的时候迷武侠小说，上课的时候都在看一次上课看金庸《天龙八部》的时候被老师发现了，没收，然后大吼：把其它七本给我交出来。</li><li>某男逛妓院,问女价钱,女答:50元.男见便宜,干了.女说:请付100元,男问其因.女答进出各50元.男怒道:你他妈是中国移动啊,还双向收费！</li><li>双胞胎在母亲肚子里聊天.老大说:老爸不错，经常伸头来看我们.就是不爱卫生,吐口痰就走.老二说:还是隔壁的叔叔好.他吐完痰还用袋子把痰装走.　</li><li>某男久不行房,妻很难受.一日他要妻脱光倒立镜前,妻大喜照办.他将妻双腿分开,将自己下巴放于妻阴部后，问妻:我留胡子好看吗?</li><li>同学生病，去医院看他，你家伙看我来了，悠悠的吐出一句，你来了，也没啥好招待你的，要不医院里的氧气你吸一点吧，还挺新鲜的，说完就把氧气管往我鼻子里塞。</li><li>天太热晚上和兄弟们吃串串喝啤酒。一兄弟迟到了，这货喜欢吃白菜和海带，大老远的很豪迈的喊了句:"老板娘，先来一盘白带。"一口啤酒没憋住从鼻子里喷了出去。</li><li>他带女友回家，路上轻轻跟她咬着耳朵："待会儿，我要让你尝尝我的看家本领……""讨厌~人家不来啦~"女友娇羞地说。到了家门口，他立刻张开双臂挡在门前，大声说："就不让你进去！ "</li><li>今天和女友聊天，可能太激动，女友口水喷我脸上了，我就擦了一下，女友问，怎么嫌弃啊，我回了句，抹匀，女友又一口口水就吐我脸上了，说了句再抹一次，刚刚那点量糊不住你的大脸，尼玛啊，不按套路出牌啊。</li><li>一家伙特喜欢刘德华，手机里都是他的歌，铃声也是。一日去参加葬礼，铃声想起来了，全部的人都投来鄙夷的目光，"等了好久终于等到今天……</li></ul>
+</div>
+<div btnb="" style="cursor: pointer;">下下下</div>
+</div>
+</div>
+</div>
+<div class="rollLeft">
+<div class="title">滚屏效果（滚屏效果左右（带控制））</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="rollLeft" RollRow="滚动列数" DisplayRow="显示列数" 
+SwitchBigImg="大图切换（*[bigImgObj]）不需要（false）" 
+Title="大图切换标题（*[bigtitle]）不需要（false）" Time="自动滚动间隔时间为0则不自动滚动"&gt;<br>
+&lt;!--注意：SwitchBigImg和Title属性为大图元素和大图标题元素，如果不需要大图切换将其值写为false--&gt;<br>
+&lt;div class="bigimg"&gt;<br>
+&lt;img bigImgObj width="300" height="200"&gt;//不需要时直接去掉即可<br>
+&lt;p bigtitle&gt;标题&lt;/p&gt;//不需要时直接去掉即可<br>
+&lt;/div&gt;<br>
+&lt;div class="list"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div class="bn bnl" btnl&gt;左&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div class="bn bnr" btnr&gt;右&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div class="roll" roll&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题一"&gt;&lt;img src="Images/TestImg/01.jpg" bigSrc="Images/TestImg/01.jpg"&gt;标题一&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题二"&gt;&lt;img src="Images/TestImg/02.jpg" bigSrc="Images/TestImg/02.jpg"&gt;标题二&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题三"&gt;&lt;img src="Images/TestImg/03.jpg" bigSrc="Images/TestImg/03.jpg"&gt;标题三&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题四"&gt;&lt;img src="Images/TestImg/04.jpg" bigSrc="Images/TestImg/04.jpg"&gt;标题四&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题五"&gt;&lt;img src="Images/TestImg/05.jpg" bigSrc="Images/TestImg/05.jpg"&gt;标题五&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li title="标题六"&gt;&lt;img src="Images/TestImg/06.jpg" bigSrc="Images/TestImg/06.jpg"&gt;标题六&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('滚动层').rollLeft({RollRow:滚动列数,DisplayRow:显示列数,Left:'左按钮',Right:'右按钮
+',Time:自动滚动间隔时间为0则不自动滚动,SwitchBigImg:'切换的大图对象',Title:'切换的标题对象'});
+</p>
+</div>
+<div class="preview">
+<div dsh="rollLeft" rollrow="1" displayrow="3" time="0" switchbigimg="*[bigImgObj]" title="*[bigtitle]">
+<div class="bigimg">
+<img bigimgobj="" style="display: inline;" src="01.jpg" width="300" height="200">
+<p bigtitle="">标题一</p>
+</div>
+<div class="list">
+<div class="bn bnl" btnl="">左</div>
+<div class="bn bnr" btnr="">右</div>
+<div class="roll" roll="" style="overflow: hidden; position: relative;">
+<ul style="display: block; position: relative;"> 
+<li title="标题一" style="cursor: pointer;"><img src="01.jpg" bigsrc="Images/TestImg/01.jpg">标题一</li>
+<li title="标题二" style="cursor: pointer;"><img src="02.jpg" bigsrc="Images/TestImg/02.jpg">标题二</li>
+<li title="标题三" style="cursor: pointer;"><img src="03.jpg" bigsrc="Images/TestImg/03.jpg">标题三</li>
+<li title="标题四" style="cursor: pointer;"><img src="04.jpg" bigsrc="Images/TestImg/04.jpg">标题四</li>
+<li title="标题五" style="cursor: pointer;"><img src="05.jpg" bigsrc="Images/TestImg/05.jpg">标题五</li>
+<li title="标题六" style="cursor: pointer;"><img src="06.jpg" bigsrc="Images/TestImg/06.jpg">标题六</li>
+ 
+<li title="标题一" style="cursor: pointer;"><img src="01.jpg" bigsrc="Images/TestImg/01.jpg">标题一</li>
+<li title="标题二" style="cursor: pointer;"><img src="02.jpg" bigsrc="Images/TestImg/02.jpg">标题二</li>
+<li title="标题三" style="cursor: pointer;"><img src="03.jpg" bigsrc="Images/TestImg/03.jpg">标题三</li>
+<li title="标题四" style="cursor: pointer;"><img src="04.jpg" bigsrc="Images/TestImg/04.jpg">标题四</li>
+<li title="标题五" style="cursor: pointer;"><img src="05.jpg" bigsrc="Images/TestImg/05.jpg">标题五</li>
+<li title="标题六" style="cursor: pointer;"><img src="06.jpg" bigsrc="Images/TestImg/06.jpg">标题六</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="topPrompt">
+<div class="title">简易提示层</div>
+<div class="content">
+<p>JS使用方法</p>
+<p>
+$.topPrompt(宽,高,'提示内容');
+</p>
+</div>
+</div>
+<div class="flash">
+<div class="title">插入flash</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;img src="..." dsh="imgAuto" maxWidth="80" &gt;&lt;/li&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').flash({src:'路径',width:'宽度',height:'高度',wmode:'显示模式（transparent）',mask:是否开启遮罩（true/flase）});
+</p>
+</div>
+<div class="preview">
+<div dsh="flash" src="Flash/flash2354.swf" width="500" height="200" style="position: relative;"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="500" height="200"><param name="movie" value="Flash/flash2354.swf"><param name="quality" value="high"><param name="wmode" value="transparent"><embed src="flash2354.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="200"></object><i style="display:block;width:500px;height:200px;background:#000;position:absolute;z-index:99;top:0px;left:0px;filter: alpha(opacity=0); opacity: 0.8;"></i></div>
+</div>
+</div>
+<div class="cookie">
+<div class="title">操作Cookie</div>
+<div class="content">
+<p>JS使用方法</p>
+<p>
+写入：$.cookie('name','content');<br>
+读取：$.cookie('name');
+</p>
+</div>
+</div>
+<div class="smartFloat">
+<div class="title">智能浮动层</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="smartFloat"&gt;往上滚动，看我会怎样。&lt;/div&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').smartFloat();
+</p>
+</div>
+<div class="preview">
+<div dsh="smartFloat" style="position: fixed; top: 0px;">往上滚动，看看我会怎样。</div>
+</div>
+</div>
+<div class="scrollLoading">
+<div class="title">页面滚动图片等元素动态加载</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;img class="scrollLoading" data-url="图片真实地址" src="1*1gif图片" /&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').scrollLoading();
+</p>
+</div>
+<div class="preview">
+<img data-url="Images/test.jpg" src="test.jpg">
+</div>
+</div>
+<div class="ccc">
+<div class="title">事件的延时处理</div>
+<div class="content">
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').hoverDelay({<br>
+hoverDuring:500,//鼠标移上延时设置<br>
+outDuring: 500,//鼠标移出延时设置<br>
+hoverEvent: function(){<br>
+alert("鼠标移上时执行的事件！");<br>
+}<br>
+outEvent: function(){<br>
+alert("鼠标移出时执行的事件！");<br>
+}<br>
+});<br>
+</p>
+</div>
+</div>
+<div class="CasSelect">
+<div class="title">联级选择</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+内容格式：<br>
+&lt;div dsh="CasSelect"&gt;<br>
+&lt;a class="p0" id="13" pid="0"&gt;&lt;input type="checkbox" name="sel" value="13" /&gt;一级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;a class="p1" id="14" pid="13"&gt;&lt;input type="checkbox" name="sel" value="14" /&gt;二级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class="p2" id="32" 
+pid="14"&gt;&lt;input type="checkbox" name="sel" value="32" 
+/&gt;三级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a
+ class="p3" id="33" pid="32"&gt;&lt;input type="checkbox" name="sel" 
+value="33" /&gt;四级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &lt;a class="p4" id="34" pid="33"&gt;&lt;input type="checkbox" 
+name="sel" value="34" /&gt;五级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &lt;a class="p5" id="35" pid="34"&gt;&lt;input type="checkbox" 
+name="sel" value="35" /&gt;六级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;a class="p1" id="27" pid="13"&gt;&lt;input type="checkbox" name="sel" value="27" /&gt;二级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class="p2" id="36" 
+pid="27"&gt;&lt;input type="checkbox" name="sel" value="36" 
+/&gt;三级&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;a class="p1" id="28" pid="13"&gt;&lt;input type="checkbox" name="sel" value="28" /&gt;二级&lt;/a&gt;<br>
+&lt;/div&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').CasSelect();
+</p>
+</div>
+<div class="preview">
+<div dsh="CasSelect">
+<a class="p0" id="13" pid="0" style="padding-left: 0px;"><input name="sel" value="13" checked="checked" type="checkbox">一级</a>
+<a class="p1" id="14" pid="13" style="padding-left: 20px;"><input name="sel" value="14" checked="checked" type="checkbox">二级</a>
+<a class="p2" id="32" pid="14" style="padding-left: 40px;"><input name="sel" value="32" checked="checked" type="checkbox">三级</a>
+<a class="p3" id="33" pid="32" style="padding-left: 60px;"><input name="sel" value="33" checked="checked" type="checkbox">四级</a>
+<a class="p4" id="34" pid="33" style="padding-left: 80px;"><input name="sel" value="34" checked="checked" type="checkbox">五级</a>
+<a class="p5" id="35" pid="34" style="padding-left: 100px;"><input name="sel" value="35" checked="checked" type="checkbox">六级</a>
+<a class="p1" id="27" pid="13" style="padding-left: 20px;"><input name="sel" value="27" checked="checked" type="checkbox">二级</a>
+<a class="p2" id="36" pid="27" style="padding-left: 40px;"><input name="sel" value="36" checked="checked" type="checkbox">三级</a>
+<a class="p1" id="28" pid="13" style="padding-left: 20px;"><input name="sel" value="28" checked="checked" type="checkbox">二级</a>
+</div>
+</div>
+</div>
+<div class="input">
+<div class="title">input提示输入内容</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;input type="text" default="这里写下些什么好呢！"&gt;
+</p>
+</div>
+<div class="preview">
+<input default="这里写下些什么好呢！" value="这里写下些什么好呢！" type="text">
+</div>
+</div>
+<div class="fs">
+<div class="title">焦点图</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div class="preview"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;div dsh="fs" style="width:300px;height:150px;"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/01.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/02.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/03.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/04.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/05.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;img src="Images/TestImg/06.jpg"&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;style&gt;<br>
+/*焦点图*/<br>
+.btn span{width:18px; height:18px; line-height:18px; text-align:center; 
+font-size:12px; font-family:"Microsoft YaHei",SimHei; 
+margin-right:5px;color:#fff;background:#30302f;}<br>
+.btn span.on {background:#ce0609; color:#fcc;}<br>
+&lt;/style&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('#focus').fs({<br>
+&nbsp;&nbsp;&nbsp; bg:'#fff',&nbsp;//按钮区域的背景颜色&nbsp; <br>
+&nbsp;&nbsp;&nbsp; btnH:'60px',&nbsp;&nbsp; //按钮区域的高<br>
+&nbsp;&nbsp;&nbsp; btnBgbottom:'0px',&nbsp; //按钮区域位置底部的高度<br>
+&nbsp;&nbsp;&nbsp; btnbottom:'30px',&nbsp; //按钮位置底部的高度<br>
+&nbsp;&nbsp;&nbsp; textAlign:'right'&nbsp; //按钮区域的水平对齐方式<br>
+});<br>
+默认： $('div,p,li,span...').fs();<br>
+</p>
+</div>
+<div class="preview">
+<div dsh="fs" style="width: 300px; height: 150px; overflow: hidden; position: relative;">
+<ul style="position: absolute; height: 150px; left: -900px; width: 2100px;">
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="01.jpg"></li>
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="02.jpg"></li>
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="03.jpg"></li>
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="04.jpg"></li>
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="05.jpg"></li>
+<li style="float: left; width: 300px; height: 150px; overflow: hidden; position: relative;"><img src="06.jpg"></li>
+</ul>
+<div class="btnBg" style="opacity: 0.5; position: absolute; width: 300px; left: 0px; bottom: 0px; height: 30px; background: rgb(0, 0, 0) none repeat scroll 0% 0%;"></div><div class="btn" style="position: absolute; width: 290px; bottom: 5px; text-align: right; left: 0px;"><span style="display: inline-block; cursor: pointer;" class="">1</span><span style="display: inline-block; cursor: pointer;" class="">2</span><span style="display: inline-block; cursor: pointer;" class="">3</span><span style="display: inline-block; cursor: pointer;" class="on">4</span><span style="display: inline-block; cursor: pointer;" class="">5</span><span style="display: inline-block; cursor: pointer;" class="">6</span></div></div>
+</div>
+</div>
+<div class="syncHigh">
+<div class="title">同步高</div>
+<div class="content">
+<p>JS使用方法</p>
+<p>
+$.syncHigh(obj1,obj2);
+</p>
+</div>
+</div>
+<div class="pager">
+<div class="title">静态分页</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="pager" tag="li"&gt;<br>
+&lt;ul&gt;<br>
+&lt;li&gt;从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+...<br>
+&lt;/ul&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div').pager('分页标记',{<br>
+navId: 'nav',//分页层Id<br>
+navClass: 'Page',//分页层Class<br>
+navAttach: 'append',//添加分页方式<br>
+highlightClass: 'focus',//选中页样式<br>
+prevText: 'pre',//上一页文本<br>
+nextText: 'next',//下一页文本<br>
+height: null//分页层高度 <br>
+});<br>
+</p>
+</div>
+<div class="preview">
+<div dsh="pager" tag="li">
+<ul>
+<li style="display: list-item;">从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li style="display: none;">初中的时候迷武侠小说，上课的时候都在看一次上课看金庸《天龙八部》的时候被老师发现了，没收，然后大吼：把其它七本给我交出来。</li>
+<li style="display: none;">某男逛妓院,问女价钱,女答:50元.男见便宜,干了.女说:请付100元,男问其因.女答进出各50元.男怒道:你他妈是中国移动啊,还双向收费！</li>
+<li style="display: none;">双胞胎在母亲肚子里聊天.老大说:老爸不错，经常伸头来看我们.就是不爱卫生,吐口痰就走.老二说:还是隔壁的叔叔好.他吐完痰还用袋子把痰装走.　</li>
+<li style="display: none;">某男久不行房,妻很难受.一日他要妻脱光倒立镜前,妻大喜照办.他将妻双腿分开,将自己下巴放于妻阴部后，问妻:我留胡子好看吗?</li>
+<li style="display: none;">同学生病，去医院看他，你家伙看我来了，悠悠的吐出一句，你来了，也没啥好招待你的，要不医院里的氧气你吸一点吧，还挺新鲜的，说完就把氧气管往我鼻子里塞。</li>
+<li style="display: none;">天太热晚上和兄弟们吃串串喝啤酒。一兄弟迟到了，这货喜欢吃白菜和海带，大老远的很豪迈的喊了句:"老板娘，先来一盘白带。"一口啤酒没憋住从鼻子里喷了出去。</li>
+<li style="display: none;">他带女友回家，路上轻轻跟她咬着耳朵："待会儿，我要让你尝尝我的看家本领……""讨厌~人家不来啦~"女友娇羞地说。到了家门口，他立刻张开双臂挡在门前，大声说："就不让你进去！ "</li>
+<li style="display: none;">今天和女友聊天，可能太激动，女友口水喷我脸上了，我就擦了一下，女友问，怎么嫌弃啊，我回了句，抹匀，女友又一口口水就吐我脸上了，说了句再抹一次，刚刚那点量糊不住你的大脸，尼玛啊，不按套路出牌啊。</li>
+<li style="display: none;">一家伙特喜欢刘德华，手机里都是他的歌，铃声也是。一日去参加葬礼，铃声想起来了，全部的人都投来鄙夷的目光，"等了好久终于等到今天……</li>
+<li style="display: none;">今天在地铁上，有个暴露狂太嚣张了，旁边却没有一个人敢去开口说他，当时真觉得这个民族正义感已经死了。。。后来我实在受不了了，愤怒的冲了上去，拔下他的奶嘴厉声呵斥道："下次不许穿开裆裤！ "</li>
+<li style="display: none;">舍友理完发回来对我说："理完发就是不一样，感觉整个脑袋都比以前轻了不少呢。"我看了看他，说："你耳朵被剪掉一半了哥，现在去医院还来得及"。</li>
+</ul>
+<div id="nav" class="Page"><a rel="prev">上一页</a><a rel="1" class="focus">1</a><a rel="2">2</a><a rel="3">3</a><a rel="4">4</a><a rel="5">5</a><a rel="6">6</a><a rel="7">7</a><a rel="8">8</a><a rel="9">9</a><a rel="10">10</a><a rel="11">11</a><a rel="12">12</a><a rel="next">下一页</a></div></div>
+</div>
+</div>
+<div class="downpages">
+<div class="title">向下翻页滚屏</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="downpage"&gt;<br>
+&lt;ul&gt;<br>
+&lt;li&gt;从前有坐山，山有有坐庙，庙里有个插件。&lt;/li&gt;<br>
+...<br>
+&lt;/ul&gt;<br>
+&lt;/div&gt;<br>
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').downpage({<br>
+ButtonHtml:'',//设置翻页按钮内容<br>
+left:'',//按钮左定位<br>
+top:'',//按钮上定位<br>
+right:'',//按钮右定位<br>
+bottom:''//按钮下定位<br>
+});<br>
+</p>
+</div>
+<div class="preview">
+<div dsh="downpage" style="overflow: hidden; position: relative;">
+<ul style="width: 7504px; position: relative; height: 60px; overflow: hidden;">
+<li style="width: 938px; height: 60px; float: left;">从前有坐山，山有有坐庙，庙里有个插件。</li>
+<li style="width: 938px; height: 60px; float: left;">初中的时候迷武侠小说，上课的时候都在看一次上课看金庸《天龙八部》的时候被老师发现了，没收，然后大吼：把其它七本给我交出来。</li>
+<li style="width: 938px; height: 60px; float: left;">双胞胎在母亲肚子里聊天.老大说:老爸不错，经常伸头来看我们.就是不爱卫生,吐口痰就走.老二说:还是隔壁的叔叔好.他吐完痰还用袋子把痰装走.　</li>
+<li style="width: 938px; height: 60px; float: left;">他带女友回家，路上轻轻跟她咬着耳朵："待会儿，我要让你尝尝我的看家本领……""讨厌~人家不来啦~"女友娇羞地说。到了家门口，他立刻张开双臂挡在门前，大声说："就不让你进去！ "</li>
+<li style="width: 938px; height: 60px; float: left;">今天和女友聊天，可能太激动，女友口水喷我脸上了，我就擦了一下，女友问，怎么嫌弃啊，我回了句，抹匀，女友又一口口水就吐我脸上了，说了句再抹一次，刚刚那点量糊不住你的大脸，尼玛啊，不按套路出牌啊。</li>
+<li style="width: 938px; height: 60px; float: left;">一家伙特喜欢刘德华，手机里都是他的歌，铃声也是。一日去参加葬礼，铃声想起来了，全部的人都投来鄙夷的目光，"等了好久终于等到今天……</li>
+<li style="width: 938px; height: 60px; float: left;">今天在地铁上，有个暴露狂太嚣张了，旁边却没有一个人敢去开口说他，当时真觉得这个民族正义感已经死了。。。后来我实在受不了了，愤怒的冲了上去，拔下他的奶嘴厉声呵斥道："下次不许穿开裆裤！ "</li>
+<li style="width: 938px; height: 60px; float: left;">舍友理完发回来对我说："理完发就是不一样，感觉整个脑袋都比以前轻了不少呢。"我看了看他，说："你耳朵被剪掉一半了哥，现在去医院还来得及"。</li>
+</ul>
+<a class="next" title="下一条" style="position: absolute; right: 10px; bottom: 10px;">下一条</a></div>
+</div>
+</div>
+<div class="Code">
+<div class="title">创建随机验证码</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="Code"&gt;&lt;/div&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').Code();
+</p>
+</div>
+<div class="preview">
+<div dsh="Code" style="cursor: pointer;" onselectstart="return false" onselect="document.selection.empty()"><i style="color:Blue">8</i><i style="color:Olive">6</i><i style="color:Blue">5</i><i style="color:Olive">3</i></div>
+</div>
+</div>
+<div class="Rscroll">
+<div class="title">根随滚动</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;div dsh="Rscroll" top="-200" right="0"&gt;我不想呆在自己的坐位上。&lt;/div&gt;
+</p>
+<p>JS使用方法</p>
+<p>
+$('div,p,li,span...').Rscroll({top:上边距,left:左边距,right:右边距});
+</p>
+</div>
+<div class="preview">
+<div dsh="Rscroll" top="-200" right="0"><div class="abs" style="position: absolute; right: 0px; top: 5352px;">我不想呆在自己的坐位上。</div></div>
+<div>我已经漂过右边去了。</div>
+</div>
+</div>
+<div class="jump">
+<div class="title">下拉菜单跳转链接</div>
+<div class="content">
+<p>HTML使用方法:</p>
+<p>
+&lt;select dsh="jump"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;option value="http://www.baidu.com"&gt;百度&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;option value="http://www.qq.com"&gt;腾讯&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;option value="http://www.taobao.com"&gt;淘宝&lt;/option&gt;<br>
+&lt;/select&gt;<br>
+</p>
+</div>
+<div class="preview">
+<select dsh="jump">
+<option value="http://www.baidu.com" selected="selected">百度</option>
+<option value="http://www.qq.com">腾讯</option>
+<option value="http://www.taobao.com">淘宝</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+
+
+</body></html>

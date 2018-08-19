@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>jQuery手机响应式设计焦点图</title>
+    <link rel="stylesheet" href="public.css">
+    <script src="jquery.js"></script>
+</head>
+<body>
+
+<div class="slide_container">
+    <ul class="rslides slide slide1" id="slider">
+        <li id="slide1_s0"
+            style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out 0s;"
+            class="slide1_on">
+            <img src="1.jpg" alt="">
+            <p class="caption">标题1</p>
+        </li>
+        <li id="slide1_s1"
+            style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out 0s;"
+            class="">
+            <img src="2.jpg" alt="">
+            <p class="caption">标题2</p>
+        </li>
+        <li id="slide1_s2"
+            style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out 0s;"
+            class="">
+            <img src="3.jpg" alt="">
+            <p class="caption">标题3</p>
+        </li>
+    </ul>
+    <a href="#" class="slide_nav slide1_nav prev">Previous</a><a href="#" class="slide_nav slide1_nav next">Next</a>
+</div>
+
+<script src="responsiveslides.js"></script>
+<script src="slide.js"></script>
+
+</body>
+</html>

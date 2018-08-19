@@ -1,0 +1,279 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery滚动数字、计数器(原创)</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:#404040;
+	font-family:Roboto,sans-serif,arial;
+}
+.panel {
+	height:50px;
+	line-height:50px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	border:1px solid rgba(256,256,256,1);
+	transform:translate(-50%,-50%);
+	font-size:45px;
+	background:black;
+	z-index:2;
+	width: 500px;
+}
+.panel .digit {
+	width:50px;
+	line-height:50px;
+	font-size:45px;
+	height:50px;
+	overflow:hidden;
+	display:inline-block;
+	border:none;
+	float:left;
+	box-sizing:border-box;
+}
+.panel .digit ul {
+	transition:margin-top .5s ease;
+}
+.panel .digit+.digit {
+	border-left:1px solid white;
+}
+.panel .digit li {
+	width:50px;
+	height:50px;
+	color:white;
+	text-align:center;
+}
+.setting {
+	position:absolute;
+	left:50%;
+	top:65%;
+	transform:translate(-50%,-50%);
+	z-index:1;
+}
+.setting #custom-number {
+	height:50px;
+	width:500px;
+	line-height:50px;
+	font-size:45px;
+	background:black;
+	border:1px solid white;
+	color:white;
+}
+.setting #custom-number::placeholder {
+	color:darkgrey;
+}
+.setting #error:not(:empty) {
+	padding:5px;
+	color:red;
+	border-bottom:2px solid red;
+}
+.title {
+	position:absolute;
+	height:50px;
+	line-height:50px;
+	font-size:50px;
+	left:50%;
+	top:40%;
+	color:lightblue;
+	transform:translate(-50%,-50%);
+	/*渐变色字体(仅支持WebKit)*/
+				background:-webkit-linear-gradient(left,lightblue,#FFBBAA);
+	-webkit-text-fill-color:transparent;
+	-webkit-background-clip:text;
+}
+</style>
+</head>
+<body>
+<h1 class="title">滚动数字计数器</h1>
+<div class="panel">
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="digit">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>0</li>
+        </ul>
+    </div>
+</div>
+<div class="setting">
+    <input id="custom-number" placeholder="10位及以下正整数" max="9999999999" min="0" type="text">
+    <div class="error" id="error"></div>
+</div>
+
+<script>
+var debugging = null; //自定义数字备用
+setInterval(() => {
+    var stamp = debugging ? debugging : Date.parse(new Date()) / 1000 | 0;
+    stamp = stamp.toString();
+    if (stamp.length < 10) {
+        stamp = "0".repeat(10 - stamp.length) + stamp;
+    }
+    for (let i = 0; i < 10; i++) {
+        $(".panel .digit:nth-child(" + (i + 1) + ") ul").css('margin-top', "-" + (Number(stamp.charAt(i)) * 50) + "px");
+    }
+}, 50);
+$("#custom-number").keyup(function() {
+    let n = $(this).val();
+    if (n.length === 0) {
+        debugging = null;
+        $("#error").html("");
+    } else if (isNaN(n) || Number(n) > 9999999999) {
+        debugging = null;
+        $("#error").html("数字不合法");
+    } else {
+        debugging = Number(n).toString();
+        $("#error").html("");
+    }
+});
+</script>
+
+</body>
+</html>

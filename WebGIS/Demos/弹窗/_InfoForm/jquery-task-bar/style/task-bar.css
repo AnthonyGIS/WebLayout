@@ -1,0 +1,46 @@
+*{
+	margin:0;padding:0;
+}
+.task-bar{
+	border: 2px solid #62a9f1;
+	display: none;
+	position: absolute;
+	z-index: 999999;
+}
+.task-bar>.header{
+	background: #62a9f1;
+	color: #fff;
+	cursor: move;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+}
+.task-bar>.header>.toolbar{
+	float: right;
+	height: 25px;
+}
+.task-bar>.header span{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+}
+.task-bar>.header .title{
+	font-size: 14px;
+}
+.task-bar>.header>.toolbar>.btn{
+	background: #62a9f1;
+	border: none;
+	height: 25px;
+	width: 25px;
+	text-align: center;
+}
+.task-bar>.header>.toolbar>.btn:hover{
+	background: #2f8ff1;
+	cursor: pointer;
+}
+.task-bar>.content{
+	background: #fff;
+	height: calc(100% - 27px);
+	width: 100%;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Title</title>
+<script src="../Title_files/vue_002.js"></script><script src="../Title_files/vue.js"></script>
+<script type="text/javascript" src="../Title_files/vue-messagebox-demo.js"></script><style type="text/css">
+@keyframes fade-in-data-v-1908bc89 {
+0% {
+    opacity: 0;
+    transform: scale(0.7);
+}
+100% {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+@keyframes fade-out-data-v-1908bc89 {
+0% {
+    opacity: 1;
+    transform: scale(1);
+}
+100% {
+    opacity: 0;
+    transform: scale(0.7);
+}
+}
+.messagebox-container[data-v-1908bc89] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.61);
+}
+.messagebox-container .messagebox[data-v-1908bc89] {
+    width: 400px;
+    text-align: center;
+    background: #fff;
+    border-radius: 4px;
+    color: #333;
+    padding: 20px;
+    min-height: 130px;
+}
+.messagebox-container .messagebox h2[data-v-1908bc89] {
+      font-weight: 700;
+      font-size: 18px;
+      text-align: left;
+}
+.messagebox-container .messagebox p[data-v-1908bc89], .messagebox-container .messagebox h2[data-v-1908bc89] {
+      padding: 0;
+      margin: 0;
+}
+.messagebox-container .messagebox .describe[data-v-1908bc89] {
+      text-align: left;
+      padding: 20px 0 30px;
+      font-size: 14px;
+}
+.messagebox-container .messagebox .show[data-v-1908bc89] {
+      display: block;
+}
+.messagebox-container .messagebox .hide[data-v-1908bc89] {
+      display: none;
+}
+.messagebox-container .messagebox p > span[data-v-1908bc89] {
+      display: inline-block;
+      width: 60px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      border-radius: 4px;
+      margin: 0 10px;
+      cursor: pointer;
+}
+.messagebox-container .messagebox p > span[data-v-1908bc89]:hover {
+        opacity: .8;
+}
+.messagebox-container .fade-in[data-v-1908bc89] {
+    animation-name: fade-in-data-v-1908bc89;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+.messagebox-container .fade-out[data-v-1908bc89] {
+    animation-name: fade-out-data-v-1908bc89;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+</style>
+</head>
+<body>
+<div id="app"><a href="javascript:;">点击弹出messageBox</a></div>
+
+<script type="text/javascript">
+    new Vue({
+        el:'#app',
+        methods:{
+            toast:function(){
+                this.$messagebox.show({'title':'hello','describe':'everyOne'},{cb:function () {
+                    alert('点击确认以后的回调')
+                },buttonName:['关闭','确定']});
+            }
+        }
+    })
+</script>
+</body></html>

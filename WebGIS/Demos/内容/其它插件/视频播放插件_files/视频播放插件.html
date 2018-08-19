@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>视频播放插件</title>
+<link rel="stylesheet" type="text/css" href="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/video.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<script src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/jquery-1.js"></script><script src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/jquery.js"></script>
+<script src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/pingzi_video.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+body {
+	width: 800px;
+	max-width: 100%;
+	margin: 0 auto !important;
+	padding-bottom: 10vw;
+}
+.m-video {
+	padding: 15px;
+	border: 1px solid #000000;
+}
+img {
+	max-width: 100%;
+}
+code, pre {
+	background-color: #f8f8f8;
+	-webkit-font-smoothing: initial;
+	-moz-osx-font-smoothing: initial;
+	padding: 5px 15px;
+	white-space: normal;
+}
+code {
+	color: #e96900;
+	padding: 3px 5px;
+	margin: 0 2px;
+	border-radius: 2px;
+}
+</style>
+</head>
+<body>
+<h1>视频插件 </h1>
+相当于一个video标签的皮肤<br>
+插件没有做太多兼容，目前就支持mp4<br>
+<br>
+对于video的核心处理来自<a href="https://www.jianshu.com/p/404d01b8e713" rel="nofollow">查看地址</a><br>
+作者的方法 eventTester<br>
+（名字我都懒得改了 (¬ω¬)嘿嘿) <br>
+<br>
+<img src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/1.jpg" alt=""> <br>
+<br>
+引入<code>jquer</code>和<code>pingzi_video.js</code> <br>
+<br>
+<img src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/2.jpg"> <br>
+<br>
+创建按钮 并给按钮添加<code>class="m-video"</code> 然后就可以用一下两种模式了 <br>
+<h2>第一种用法</h2>
+在元素上添加<code>data-src</code>属性 将视频地址放入其中<br>
+<br>
+<pre>&lt;div class="m-video" data-src="jq22-sp.mp4"&gt;点我播放视频&lt;/div&gt;</pre>
+<div class="m-video" data-src="shipin/480.mp4" style="width: 200px;text-align: center;cursor: pointer;"> 点我播放视频 </div>
+<br>
+<br>
+<h2>第二种用法</h2>
+在元素上添加<code>data-src</code>属性 放入视频地址,<code>data-menu</code>属性放入文件名 不加 扩展名<br>
+<pre>&lt;div class="m-video" <code>data-src="shipin/"</code> <code>data-menu="480 720 1080"</code>&gt;video &lt;/div&gt;</pre>
+<img src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/s.jpg"> <br>
+<img src="%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6_files/3.jpg" alt=""> <br>
+就是清晰度切换的名字。 <br>
+
+<br>
+<br>
+<div class="m-video" data-src="shipin/" data-menu="480 720 1080" style="width: 200px;text-align: center;cursor: pointer;"> video </div>
+
+
+</body></html>

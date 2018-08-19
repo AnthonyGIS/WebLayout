@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>自定义悬浮导航</title>
+<link rel="stylesheet" href="bootstrap.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="bootstrap-select.css" rel="stylesheet" type="text/css">
+<link href="bootstrap-colorpicker.css" rel="stylesheet" type="text/css">
+<link href="bootstrap-switch.css" rel="stylesheet" type="text/css">
+<link href="css.css" rel="stylesheet" type="text/css">
+<link href="floating.css" rel="stylesheet" type="text/css">
+<script src="jquery-2.js"></script>
+<script>
+	var method = {};//获取存储数据
+</script></head>
+
+<body>
+<nav class="top_nav">
+<div class="top_nav_z col-sm-7 col-xs-3 text-overflow">
+<ol class="breadcrumb">
+<li><img class="ico" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGc+Cgk8cGF0aCBzdHlsZT0iZmlsbDojMkQ1MjdDOyIgZD0iTTEwMi4zNzQsNDc5LjQ4NUM0NS45MjYsNDc5LjQ4NSwwLDQzMy41NiwwLDM3Ny4xMWMwLTU2LjQ0OCw0NS45MjYtMTAyLjM3NCwxMDIuMzc0LTEwMi4zNzQgICBjMzYuMTI1LDAsNjkuOTU4LDE5LjM2Miw4OC4yOTMsNTAuNTMyYzQuMDc1LDYuOTI5LDEuNzYyLDE1Ljg0OS01LjE2NSwxOS45MjNjLTYuOTI5LDQuMDc3LTE1Ljg0OCwxLjc2Mi0xOS45MjMtNS4xNjUgICBjLTEzLjEyOS0yMi4zMTgtMzcuMzQ4LTM2LjE4Mi02My4yMDYtMzYuMTgyYy00MC40LDAtNzMuMjY3LDMyLjg2Ny03My4yNjcsNzMuMjY3czMyLjg2Nyw3My4yNjgsNzMuMjY3LDczLjI2OCAgIGMyNS40MDQsMCw0OC42MzQtMTIuODczLDYyLjE0Mi0zNC40MzFjNC4yNjktNi44MTMsMTMuMjUtOC44NzMsMjAuMDU5LTQuNjA4YzYuODExLDQuMjY5LDguODczLDEzLjI1LDQuNjA2LDIwLjA1OSAgIEMxNzAuMzE4LDQ2MS41MDksMTM3Ljg2Niw0NzkuNDg1LDEwMi4zNzQsNDc5LjQ4NXoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiMyRDUyN0M7IiBkPSJNNDk3LjQ0NiwzNTkuNzU2SDI1NC4zMjRjLTguMDM4LDAtMTQuNTU0LTYuNTE3LTE0LjU1NC0xNC41NTRzNi41MTYtMTQuNTU0LDE0LjU1NC0xNC41NTRoMjQzLjEyMiAgIGM4LjAzNywwLDE0LjU1NCw2LjUxNywxNC41NTQsMTQuNTU0UzUwNS40ODMsMzU5Ljc1Niw0OTcuNDQ2LDM1OS43NTZ6Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojMkQ1MjdDOyIgZD0iTTQwNi4yNzYsNDIzLjU3M0gyNTQuMzI0Yy04LjAzOCwwLTE0LjU1NC02LjUxNy0xNC41NTQtMTQuNTU0czYuNTE2LTE0LjU1NCwxNC41NTQtMTQuNTU0aDE1MS45NTEgICBjOC4wMzcsMCwxNC41NTQsNi41MTcsMTQuNTU0LDE0LjU1NFM0MTQuMzE0LDQyMy41NzMsNDA2LjI3Niw0MjMuNTczeiIvPgo8L2c+CjxjaXJjbGUgc3R5bGU9ImZpbGw6I0NFRThGQTsiIGN4PSIxMDIuMzcxIiBjeT0iMTM0Ljg4NCIgcj0iODcuODE3Ii8+CjxnPgoJPHBhdGggc3R5bGU9ImZpbGw6IzJENTI3QzsiIGQ9Ik0xMDIuMzc0LDIzNy4yNjNDNDUuOTI0LDIzNy4yNjMsMCwxOTEuMzM4LDAsMTM0Ljg5QzAsNzguNDQsNDUuOTI0LDMyLjUxNSwxMDIuMzc0LDMyLjUxNSAgIFMyMDQuNzQ4LDc4LjQ0LDIwNC43NDgsMTM0Ljg5QzIwNC43NSwxOTEuMzM4LDE1OC44MjQsMjM3LjI2MywxMDIuMzc0LDIzNy4yNjN6IE0xMDIuMzc0LDYxLjYyMiAgIGMtNDAuNCwwLTczLjI2NywzMi44NjgtNzMuMjY3LDczLjI2OHMzMi44NjcsNzMuMjY3LDczLjI2Nyw3My4yNjdzNzMuMjY3LTMyLjg2Nyw3My4yNjctNzMuMjY3UzE0Mi43NzQsNjEuNjIyLDEwMi4zNzQsNjEuNjIyeiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6IzJENTI3QzsiIGQ9Ik00OTcuNDQ2LDExNy41MzVIMjU0LjMyNGMtOC4wMzgsMC0xNC41NTQtNi41MTctMTQuNTU0LTE0LjU1NHM2LjUxNi0xNC41NTQsMTQuNTU0LTE0LjU1NGgyNDMuMTIyICAgYzguMDM3LDAsMTQuNTU0LDYuNTE3LDE0LjU1NCwxNC41NTRTNTA1LjQ4MywxMTcuNTM1LDQ5Ny40NDYsMTE3LjUzNXoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiMyRDUyN0M7IiBkPSJNNDA2LjI3NiwxODEuMzVIMjU0LjMyNGMtOC4wMzgsMC0xNC41NTQtNi41MTctMTQuNTU0LTE0LjU1NHM2LjUxNi0xNC41NTQsMTQuNTU0LTE0LjU1NGgxNTEuOTUxICAgYzguMDM3LDAsMTQuNTU0LDYuNTE3LDE0LjU1NCwxNC41NTRTNDE0LjMxNCwxODEuMzUsNDA2LjI3NiwxODEuMzV6Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==">应用插件</li>
+<li class="active">
+社交通讯
+<a class="ico_bg_help"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDI2IDI2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNiAyNiIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CiAgPGc+CiAgICA8cGF0aCBkPSJtMTQsMjJoLTJjLTAuNiwwLTEsMC40LTEsMXYyYzAsMC42IDAuNCwxIDEsMWgyYzAuNiwwIDEtMC40IDEtMXYtMmMwLTAuNi0wLjQtMS0xLTF6IiBmaWxsPSIjRkZGRkZGIi8+CiAgICA8cGF0aCBkPSJNMTMsMEM4LDAsNCw0LDQsOWMwLDAuNSwwLDEsMC4xLDEuNWMwLjEsMC42LDAuNywwLjksMS4zLDAuOGwxLjktMC42YzAuNS0wLjEsMC44LTAuNiwwLjctMS4xQzgsOS40LDgsOS4yLDgsOSAgIGMwLTIuOCwyLjItNSw1LTVzNSwyLjIsNSw1YzAsMS43LTEsMi41LTIuOCw0Yy0xLjcsMS40LTMuNywzLTQuMiw1LjljLTAuMSwwLjYsMC40LDEuMSwxLDEuMWgyYzAuNSwwLDAuOS0wLjMsMS0wLjggICBjMC4zLTEuMiwxLjItMiwyLjctMy4xQzE5LjYsMTQuNiwyMiwxMi43LDIyLDlDMjIsNCwxOCwwLDEzLDB6IiBmaWxsPSIjRkZGRkZGIi8+CiAgPC9nPgo8L3N2Zz4K"></a>
+</li>
+</ol>
+</div>
+<div class="top_nav_y col-sm-5 col-xs-9 text-right">
+<ul>
+<li>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#getHtml">获取源码</button>
+<button type="button" class="btn btn-primary" onclick="save(this);">保存</button>
+</li>
+</ul>
+</div>
+</nav>
+<section class="section">
+<div class="section_html">
+<div class="row container clearfix">
+<div class="col-sm-4 md_ms">
+<h3>基础设置</h3>
+<p>在这里可以管理状态等基础设置</p>
+</div>
+<div class="col-sm-8">
+<div class="panel panel-default">
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>PC端开启状态</label>
+<div class="btn-group bootstrap-select form-control widget-select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="启用" aria-expanded="false"><span class="filter-option pull-left">启用</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="max-height: 566.05px; overflow: hidden; min-height: 0px;"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 556.05px; overflow-y: auto; min-height: 0px;"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">启用</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">关闭</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control widget-select" data-type="state" tabindex="-98">
+<option value="true" selected="selected">启用</option>
+<option value="false">关闭</option>
+</select></div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>移动端开启状态</label>
+<div class="btn-group bootstrap-select form-control widget-select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="关闭" aria-expanded="false"><span class="filter-option pull-left">关闭</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="max-height: 566.05px; overflow: hidden; min-height: 0px;"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 556.05px; overflow-y: auto; min-height: 0px;"><li data-original-index="0" class=""><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">启用</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">关闭</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control widget-select" data-type="moveState" tabindex="-98">
+<option value="true">启用</option>
+<option value="false" selected="selected">关闭</option>
+</select></div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>显示位置</label>
+<div class="btn-group bootstrap-select form-control widget-select open"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="左侧 - 底部" aria-expanded="false"><span class="filter-option pull-left">左侧 - 底部</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="max-height: 494.9px; overflow: hidden; min-height: 90px;"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 484.9px; overflow-y: auto; min-height: 80px;"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">右侧 - 底部</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class=""><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">右侧 - 居中</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">右侧 - 顶部</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">左侧 - 底部</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4" class=""><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">左侧 - 居中</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5" class=""><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">左侧 - 顶部</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control widget-select" data-type="position" tabindex="-98">
+<option value="right-bottom">右侧 - 底部</option>
+<option value="right-center">右侧 - 居中</option>
+<option value="right-top">右侧 - 顶部</option>
+<option value="left-bottom" selected="selected">左侧 - 底部</option>
+<option value="left-center">左侧 - 居中</option>
+<option value="left-top">左侧 - 顶部</option>
+</select></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row container clearfix">
+<div class="col-sm-4 md_ms">
+<h3>账号信息</h3>
+<p>设置邮箱、电话、Skype等社交通讯方式</p>
+</div>
+<div class="col-sm-8">
+<div class="panel panel-default">
+<div class="modal-body">
+<div class="panel_titles">
+列表
+<div class="pull-right panel_account_btn">
+<a class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增</a>
+<ul class="dropdown-menu" aria-labelledby="dLabel">
+<li data-type="Email"><a>邮箱</a></li>
+<li data-type="Phone"><a>电话</a></li>
+<li data-type="Skype"><a>Skype</a></li>
+<li data-type="WhatsApp"><a>WhatsApp</a></li>
+<li data-type="Viber"><a>Viber</a></li>
+<li data-type="QRcode"><a>二维码</a></li>
+<li data-type="Address"><a>地址</a></li>
+<li data-type="Message"><a>商城留言板</a></li>
+<li data-type="QQ"><a>QQ</a></li>
+<li data-type="Top"><a>返回顶部</a></li>
+</ul>
+</div>
+</div>
+<div class="table-responsive success_list" id="panel_account">
+<table class="table table-hover table_middle table_tr_input">
+<thead>
+<tr>
+<th width="30"></th>
+<th width="90">类型</th>
+<th width="130">号码/账号</th>
+<th>提示内容</th>
+<th class="text-right" width="50">操作</th>
+</tr>
+</thead>
+<tbody data-listidx="0"><tr data-type="Email" style="cursor: pointer;" data-cursor="pointer"><td><span class="iconfont icon_drag"></span></td><td>邮箱</td><td><input class="form-control input-sm data-text" placeholder="邮箱..." type="text"></td><td><input class="form-control input-sm data-tip" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="Phone" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>电话</td><td><input class="form-control input-sm data-text" placeholder="电话号码..." type="text"></td><td><input class="form-control input-sm data-tip" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="Skype" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>Skype</td><td><input class="form-control input-sm data-text" placeholder="Skype账号..." type="text"></td><td><input class="form-control input-sm data-tip" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="WhatsApp" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>WhatsApp</td><td><input class="form-control input-sm data-text" placeholder="WhatsApp账号..." type="text"></td><td><input class="form-control input-sm data-tip" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="Viber" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>Viber</td><td><input class="form-control input-sm data-text" placeholder="Viber号码..." type="text"></td><td><input class="form-control input-sm data-tip" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="QRcode" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>二维码</td><td>-</td><td><input class="form-control input-sm data-tip" value="http://jq22com.qiniudn.com/12.png" placeholder="图片地址..." type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr><tr data-type="Top" style="cursor: pointer;"><td><span class="iconfont icon_drag"></span></td><td>返回顶部</td><td>-</td><td><input class="form-control input-sm data-tip" value="Back top" placeholder="-" type="text"></td><td><button type="button" class="btn btn-default btn-sm btn-destroy"><span class="glyphicon glyphicon-trash"></span></button></td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row container clearfix">
+<div class="col-sm-4 md_ms">
+<h3>主题设置</h3>
+<p>在这里可以设置悬浮列表的外观。</p>
+</div>
+<div class="col-sm-8">
+<div class="panel panel-default">
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>主题风格</label>
+<div class="btn-group bootstrap-select form-control widget-select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="默认主题"><span class="filter-option pull-left">默认主题</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">默认主题</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">圆形 - 白底</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">圆形 - 黑色主题</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">方形 - 多彩</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">方形 - 白底</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">方形 - 黑色主题</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">圆角 - 多彩</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">圆角 - 白底</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">圆角 - 黑色主题</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control widget-select" data-type="theme" tabindex="-98">
+<option value="panel_theme_round_solid" selected="selected">默认主题</option>
+<option value="panel_theme_round_hollow">圆形 - 白底</option>
+<option value="panel_theme_round_Blacktheme">圆形 - 黑色主题</option>
+<option value="panel_theme_square_solid">方形 - 多彩</option>
+<option value="panel_theme_square_hollow">方形 - 白底</option>
+<option value="panel_theme_square_Blacktheme">方形 - 黑色主题</option>
+<option value="panel_theme_fillet_solid">圆角 - 多彩</option>
+<option value="panel_theme_fillet_hollow">圆角 - 白底</option>
+<option value="panel_theme_fillet_Blacktheme">圆角 - 黑色主题</option>
+</select></div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>尺寸大小</label>
+<div class="btn-group bootstrap-select form-control widget-select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="panel_position" title="标准"><span class="filter-option pull-left">标准</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">大</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">标准</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">小</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="hide" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">超小</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control widget-select" data-type="size" id="panel_position" tabindex="-98">
+<option value="lg">大</option>
+<option value="auto" selected="selected">标准</option>
+<option value="sm">小</option>
+<option value="xs" class="hide">超小</option>
+</select></div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>提示层背景颜色</label>
+<div class="colorpicker-element widget-color">
+<input class="form-control" data-type="tip" data-name="background-color" value="#000000" type="text">
+<span class="input-group-addon"><i style="background-color: rgb(0, 0, 0);"></i></span>
+<div class="colorpicker dropdown-menu colorpicker-hidden colorpicker-with-alpha colorpicker-right"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="top: 100px; left: 0px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 100px;"></i></div><div class="colorpicker-alpha" style="background-color: rgb(0, 0, 0);"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="background-color: rgb(0, 0, 0);"><div style="background-color: rgb(0, 0, 0);"></div></div><div class="colorpicker-selectors"></div></div></div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>提示层字体颜色</label>
+<div class="colorpicker-element widget-color">
+<input class="form-control" data-type="tip" data-name="color" value="#ffffff" type="text">
+<span class="input-group-addon"><i style="background-color: rgb(255, 255, 255);"></i></span>
+<div class="colorpicker dropdown-menu colorpicker-hidden colorpicker-with-alpha colorpicker-right"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="top: 0px; left: 0px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 100px;"></i></div><div class="colorpicker-alpha" style="background-color: rgb(255, 255, 255);"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="background-color: rgb(255, 255, 255);"><div style="background-color: rgb(255, 255, 255);"></div></div><div class="colorpicker-selectors"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="modal fade" id="getHtml" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-body">
+<div class="alert alert-warning" role="alert"><strong>使用说明:</strong>需要JQuery库,修改JS与css文件路径,复制源码到前端展示！</div>
+<textarea class="form-control" rows="14"></textarea>
+</div>
+</div>
+</div>
+</div>
+<script src="bootstrap.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="bootstrap-select.js"></script>
+<script src="jquery.js"></script>
+<script src="bootstrap-colorpicker.js"></script>
+<script src="bootstrap-switch.js"></script>
+<script src="banneralert.js"></script>
+<script src="js.js"></script>
+<script src="floating.js"></script>
+<script>
+	$("body").floatmodel(method);
+	function save(obj){
+		$("body").showbanner({ title: "", position: "bottom", content: "保存成功！" });
+		console.info($("body").floatmodel("get"));
+	}
+	$("#getHtml").on('show.bs.modal',function(){
+		var html = "";
+		html += '&lt;link href="css/floating.css" rel="stylesheet" type="text/css"&gt;';
+		html += '\r\n';
+		html += '&lt;script src="js/floating.js"&gt;&lt;/script&gt;';
+		html += '\r\n';
+		html += '&lt;script&gt;';
+		html += '\r\n';
+		html += '$(document).ready(function () {';
+		html += '\r\n';
+		html += '$("body").floating(' + JSON.stringify($("body").floatmodel("get")) + ');';
+		html += '\r\n';
+		html += '})';
+		html += '\r\n';
+		html += '&lt;/script&gt;';
+		$(this).find("textarea").html(html)
+	})
+</script>
+
+
+<div class="parts-floating" data-position="left-bottom" data-theme="panel_theme_round_solid" data-size="auto" data-state="true" data-movestate="false"><ul><li data-type="Email"><span class="iconfont"></span></li><li data-type="Phone"><span class="iconfont"></span></li><li data-type="Skype"><span class="iconfont"></span></li><li data-type="WhatsApp"><span class="iconfont"></span></li><li data-type="Viber"><span class="iconfont"></span></li><li data-type="QRcode"><span class="iconfont"></span><div class="tooltip parts-li-tip"><div class="tooltip-inner" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"><img src="12.png"></div></div></li><li data-type="Top"><span class="iconfont"></span><div class="tooltip parts-li-tip"><div class="tooltip-inner" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">Back top</div></div></li></ul></div></body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>利用JQuery实现轮播</title>
+    <link rel="stylesheet" type="text/css" href="css/main_Jq.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <!--使用一个插件Jquery.transit.这个插件就是具体封装了transition的CSS3过渡动画的实现-->
+    <script type="text/javascript" src="js/Jquery.transit.js"></script>
+</head>
+<body>
+<div id="container">
+    <!-- 图片部分 -->
+    <ul id="container_Img">
+        <li><img src="images/image5.jpg"></li>
+        <li><img src="images/image1.jpg"></li>
+        <li><img src="images/image2.jpg"></li>
+        <li><img src="images/image3.jpg"></li>
+        <li><img src="images/image4.jpg"></li>
+        <li><img src="images/image5.jpg"></li>
+        <li><img src="images/image1.jpg"></li>
+    </ul>
+    <!-- 底下圆圈部分 -->
+    <div id="container_num">
+        <a href="" class="active" index="1"></a>
+        <a href="" index="2"></a>
+        <a href="" index="3"></a>
+        <a href="" index="4"></a>
+        <a href="" index="5"></a>
+    </div>
+    <!-- 两边按钮部分 -->
+    <a href="" class="arrow" id="prev">&lt;</a>
+    <a href="" class="arrow" id="next">&gt;</a>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function () {
+        var container = $('#container');
+        var container_Img = $('#container_Img');
+        var container_nums = $('#container_num a');
+
+        var btn_prev = $('#prev');
+        var btn_next = $('#next');
+        var index = 1;
+        var timer;
+        var interval = 2000;
+
+        function showActive() {
+            container_nums.eq(index - 1).addClass('active').siblings().removeClass('active');
+
+        }
+
+        function animate(offset, speed) {
+            var oldLeft = parseInt(container_Img.css('left'));
+            var newLeft = oldLeft + offset;
+
+            if (newLeft > -600) {
+                newLeft = -3000;
+            }
+            if (newLeft < -3000) {
+
+                newLeft = -600;
+            }
+
+            container_Img.css({
+                'transition-timing-function': 'linear',
+                'transition-duration': speed + 'ms',
+                'left': newLeft + 'px'
+                // 'transform': 'translate3d(-' + offset + 'px,0px,0px)'
+            });
+
+        }
+
+        function play() {
+            timer = setInterval(function () {
+                btn_next.trigger('click');
+            }, interval);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+
+        // 绑定事件
+        btn_prev.bind('click', function () {
+            index -= 1;
+            if (index === 0) {
+                index = 5;
+            }
+            animate(600, 300);
+            showActive();
+        });
+        btn_next.bind('click', function () {
+            index += 1;
+            if (index === 6) {
+                index = 1;
+            }
+
+            animate(-600, 300);
+            showActive();
+        });
+
+        // 给每个圆圈加上点击事件
+        container_nums.each(function () {
+            $(this).bind('click', function () {
+
+                if (container_Img.is(':animated') || $(this).attr('class') === 'active') {
+                    return;
+                }
+                var myIndex = $(this).attr('index');
+                var offset = -600 * (myIndex - index);
+
+                animate(offset, 300);
+                index = myIndex;
+                showActive();
+            });
+        });
+
+        container.hover(stop, play);
+
+        play();
+    });
+</script>

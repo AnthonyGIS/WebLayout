@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内容选中即复制</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<p>选中我就复制了！[选中后直接放到粘贴板里，不信试试看]！</p>
+
+<script>
+document.onclick = function() {
+    if (window.getSelection) {
+        text = window.getSelection();
+    } else if (document.selection) {
+        text = document.selection.createRange();
+    }
+    // 放到粘贴板里，操作浏览器自身的API
+    // console.log(text.toString());
+    document.execCommand('Copy'); // 执行浏览器的复制命令
+}
+</script>
+
+</body>
+</html>

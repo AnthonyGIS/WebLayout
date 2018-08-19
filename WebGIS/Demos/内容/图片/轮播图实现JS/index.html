@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>利用js实现轮播图</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="banner">
+    <ul id="banner_imgs" style="left: -600px;">
+        <li><a href="#"><img src="images/image5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/image1.jpg" alt=""></a></li>
+    </ul>
+    <div id="number">
+        <a href="#" index="1" class="active"></a>
+        <a href="#" index="2"></a>
+        <a href="#" index="3"></a>
+        <a href="#" index="4"></a>
+        <a href="#" index="5"></a>
+    </div>
+    <a href="#" class="arrow" id="prev">&lt;</a>
+    <a href="#" class="arrow" id="next">&gt;</a>
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        // body...
+        var banner = document.getElementById("banner");
+        var banner_imgs = document.getElementById("banner_imgs");
+        var number = document.getElementById("number").getElementsByTagName('a');
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        var index = 1;    //那个方条要亮起来,即通过下标索引来访问number数组
+        var animated = false;
+        var timer;          //间歇调用返回一个ID，通过该ID就可以实现取消间歇调用
+
+
+        function showButton() {
+            // 去掉上一个active
+            for (var i = 0; i < number.length; i++) {
+                if (number[i].className === 'active') {
+                    number[i].className = '';
+                    break;
+                }
+            }
+
+            number[index - 1].className = 'active';
+
+        }
+
+        function animate(offset) {
+
+            animated = true;
+            var oldLeft = parseInt(banner_imgs.style.left);
+            var newLeft = oldLeft + offset;
+            var time = 300;          //完成动画的时间
+            var inteval = 10;       //隔多长时间移动一次
+            var speed = offset / (time / inteval);  //每次的位移量
+
+            var go = function () {
+                if ((speed < 0 && oldLeft > newLeft) || (speed > 0 && oldLeft < newLeft)) {
+
+                    banner_imgs.style.left = oldLeft + speed + 'px';
+                    oldLeft = parseInt(banner_imgs.style.left);
+                    // 设置定时器
+                    setTimeout(go, inteval);
+                } else {
+                    animated = false;
+                    banner_imgs.style.left = newLeft + 'px';
+                    if (newLeft > -600) {
+                        banner_imgs.style.left = -3000 + 'px';
+                    }
+                    if (newLeft < -3000) {
+                        banner_imgs.style.left = -600 + 'px';
+                    }
+
+                }
+            };
+
+            go();
+
+        }
+
+        // 自动播放
+        function play() {
+            timer = setInterval(function () {
+                next.onclick();
+            }, 2000);
+        }
+
+        // 停止间歇调用
+        function stop() {
+            clearInterval(timer);
+        }
+
+        // 绑定事件
+        next.onclick = function () {
+            index = index + 1;
+            if (index === 6) {
+                index = 1;
+            }
+            if (!animated) {
+                animate(-600);
+            }
+            showButton();
+
+        };
+        prev.onclick = function () {
+            index = index - 1;
+            if (index === 0) {
+                index = 5;
+            }
+            if (!animated) {
+                animate(600);
+            }
+            showButton();
+        };
+
+        // 给下方的每个方条加上事件
+        for (var i = 0; i < number.length; i++) {
+
+            number[i].onclick = function () {
+                if (this.className === 'active') {
+                    return;
+                }
+                var myindex = parseInt(this.getAttribute('index'));
+                var offset = -600 * (myindex - index);
+
+                if (!animated) {
+                    animate(offset);
+                }
+
+                // 切换并更改当前的index
+                index = myindex;
+                showButton();
+
+            }
+        }
+
+        // 鼠标移动到容器上时就停止间歇调用
+        banner.onmouseover = function () {
+            stop();
+        };
+        banner.onmouseout = function () {
+            play();
+        };
+
+        play();
+    }
+</script>

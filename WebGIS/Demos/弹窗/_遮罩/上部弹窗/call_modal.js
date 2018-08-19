@@ -1,0 +1,4 @@
+$(function(){$(".trigger").modal({trigger:".trigger",modals:"div.modal_1",olayBe:true,olay:{opacity:0.7,background:"#ccc"},popPosition:{top:"Up",left:"Right"},smallfocuspadding:"7px",animationEffect:"slideDown",animationSpeed:"1000",moveModalSpeed:"400",moveOnScroll:true,resizonwindow:true,docClose:true,closeByKeyboard:"27",close:".closeBtn"})
+$(".trigger2").modal({trigger:".trigger2",modals:"div.modal_1",animationEffect:"fadeIn",popPosition:{top:"Content",left:"Content"},olayBe:true,close:".close_"})
+$(".trigger3").modal({trigger:".trigger3",modals:"div.modal_1",popPosition:{top:"windowDown",left:"Left"},animationEffect:"movezoom",olayBe:true,close:".close_"})
+$(".trigger4").modal({trigger:".trigger4",modals:"div.modal_1",animationEffect:"movezoomfadeIn",olayBe:true,close:".close_"})})

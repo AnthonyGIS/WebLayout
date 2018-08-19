@@ -1,0 +1,132 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动态添加表格内容</title>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<style>
+ html {
+	height:100%;
+}
+* {
+	margin:0;
+	padding:0
+}
+body {
+	height:100%;
+	overflow:hidden;
+}
+.container {
+	width:800px;
+	height:600px;
+	margin:0 auto;
+	background:#f9f9f9;
+	padding:50px
+}
+.container-item {
+	margin-top:30px
+}
+.confirm {
+	width:10%;
+	margin-top:20px;
+	height:30px;
+	margin-left:300px
+}
+.reset {
+	width:10%;
+	height:30px;
+	margin-left:20px
+}
+input {
+	margin-lefT:12px;
+	padding-left:10px;
+	height:20px
+}
+table {
+	width:100%;
+	margin-top:30px
+}
+table tr {
+	text-align:center;
+	width:100%
+}
+table tr th {
+	text-align:center;
+	background:lightblue;
+	height:30px
+}
+table tr td {
+	text-align:center;
+	height:40px;
+	border:1px solid #999
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="container-item">姓名<input id="username" name="hua" value="" placeholder="请输入您的姓名" type="text"></div>
+    <div class="container-item">电话<input id="tel" name="hua" value="" placeholder="请输入您的电话" type="text"></div>
+    <div class="container-item">邮箱<input id="email" name="hua" value="" placeholder="请输入您的邮箱" type="text"></div>
+    <div class="container-item">地址<input id="site" name="hua" value="" placeholder="请输入您的地址" type="text"></div>
+
+    <button class="confirm" onclick="confirmBtn()">确认</button>
+    <button class="reset" onclick="resetBtn()">重置</button>
+    <table>
+        <tbody>
+            <tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>地址</th>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+//确认按钮
+function confirmBtn() {
+
+    var username = $("#username").val();
+    var tel = $("#tel").val();
+    var email = $("#email").val();
+    var site = $("#site").val();
+
+    var html = '';
+    var regphone = /^1[3|4|5|7|8][0-9]{9}$/;
+    var regemail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+
+    if (username == '' || tel == '' || email == '' || site == '') {
+        alert("请将数据填入完全");
+    } else {
+        //校验输入的手机号是否正确
+        if (!regphone.test(tel)) {
+
+            alert("请输入正确的手机号码");
+            $("#tel").focus();
+
+        } else if (!regemail.test(email)) { //校验输入的email是否正确
+
+            alert("请输入正确的邮箱号码");
+            $("#email").focus();
+
+        } else {
+            html += '<tr>';
+            html += '<td>' + username + '</td>';
+            html += '<td>' + tel + '</td>';
+            html += '<td>' + email + '</td>';
+            html += '<td>' + site + '</td>';
+            html += '</tr>';
+            $("table tbody").append(html);
+        }
+    }
+}
+//清空输入框
+function resetBtn() {
+    $('input').val('');
+}
+</script>
+
+</body>
+</html>

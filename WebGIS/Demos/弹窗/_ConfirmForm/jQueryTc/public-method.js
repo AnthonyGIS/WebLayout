@@ -1,0 +1,1 @@
+function Public(){return{view:function(){return{w:document.documentElement.clientWidth,h:document.documentElement.clientHeight}}}};(function(win){if(win["UDP"]){win["UDP"].Public=Public();}else{win.UDP={Public:Public()};}})(window);

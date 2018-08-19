@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery按时间排序（原创）</title>
+    <style>
+    </style>
+    <script src="../../../LIB/JQuery/jquery.min.1.11.3.js"></script>
+</head>
+<body>
+<h3>以下内容经过排序后的结果，可对比左侧html内数据</h3>
+<div class="ul_sort">
+    <ul>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻1</p>
+            </a>
+            <span>2018-07-11 16:40</span>
+        </li>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻2</p>
+            </a>
+            <span>2018/07/10 16:30</span>
+        </li>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻3</p>
+            </a>
+            <span>2018/07/12 17:50</span>
+        </li>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻4</p>
+            </a>
+            <span>2018/07/11 16:50</span>
+        </li>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻5</p>
+            </a>
+            <span>2018/07/13 16:55</span>
+        </li>
+        <li>
+            <a href="###">
+                <p>【新闻】新闻6</p>
+            </a>
+            <span>2018/07/13 10:50</span>
+        </li>
+
+    </ul>
+
+</div>
+
+<script>
+    $(function () {
+        var ul = $('.ul_sort ul');
+        var lis = [];
+
+        lis = $('.ul_sort ul li');
+        var ux = [];
+        //循环提取时间，并调用排序方法进行排序
+        for (var i = 0; i < lis.length; i++) {
+            var tmp = {};
+            tmp.dom = lis.eq(i);
+            tmp.date = new Date(lis.eq(i).find('span').eq(0).html().replace(/-/g, '/'));
+            ux.push(tmp);
+        }
+        //数组排序，支持年的比较
+        ux.sort(function (a, b) {
+            var myData = new Date();
+            var year = myData.getYear();
+            if (a.date.getYear < year && b.date.getYear == year) {
+                return true;
+            }
+            return b.date - a.date;
+        });
+        //先移除原先顺序错乱的li内容
+        $('.ul_sort ul li').remove();
+        //重新填充排序好的内容
+        for (var i = 0; i < ux.length; i++) {
+            ul.append(ux[i].dom);
+        }
+    });
+</script>
+
+</body>
+</html>

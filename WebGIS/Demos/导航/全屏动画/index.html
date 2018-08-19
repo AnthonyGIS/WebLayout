@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS3过渡动画全屏导航菜单网页UI设计</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!--[if IE]>
+		<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="nav">
+	  <button class="btn-nav">
+	    <span class="icon-bar top"></span>
+	    <span class="icon-bar middle"></span>
+	    <span class="icon-bar bottom"></span>
+	  </button>
+	</div>
+
+	<div class="nav-content hideNav hidden">
+	  <ul class="nav-list">
+	    <li class="nav-item"><a href="#" class="item-anchor">item 1</a></li>
+	    <li class="nav-item"><a href="#" class="item-anchor">item 2</a></li>
+	    <li class="nav-item"><a href="#" class="item-anchor">item 3</a></li>
+	    <li class="nav-item"><a href="#" class="item-anchor">item 4</a></li>
+	  </ul>
+	</div>
+	<article class="jq22-container">
+		<header class="jq22-header">
+			<h1>CSS3过渡动画全屏导航菜单网页UI设计</h1>
+			 
+		</header>
+		 
+	</article>
+	
+	<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script>
+	$(window).load(function () {
+	    $('.btn-nav').on('click tap', function () {
+	        $('.nav-content').toggleClass('showNav hideNav').removeClass('hidden');
+	        $(this).toggleClass('animated');
+	    });
+	});
+	</script>
+</body>
+</html>

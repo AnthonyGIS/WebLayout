@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,IE=9,IE=10" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/bootstrapEx.css">
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/from/jquery.smart-form.js"></script>
+    <script type="text/javascript" src="js/from/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="js/from/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/from/bootstrap-select.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrapEx.js"></script>
+</head>
+
+<body>
+    <span style='font-size:20px;font-weight:bold;'>Modal 与 Tab 功能</span>
+    <p/>
+    <p/>
+    <button id="btn1" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Hello World</button>
+    <button id="btn1_1" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">设置窗口大小</button>
+    <button id="btn2" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">最大化窗口 添加按钮</button>
+    <p/>
+    <p/>
+    <button id="btn3" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Modal嵌入页签页</button>
+    <button id="btn4" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">页签iframe加载完成后显示Modal</button>
+    <p/>
+    <p/>
+    <span style='font-size:20px;font-weight:bold;'>Modal 与 Tab 事件</span>
+    <p/>
+    <p/>
+    <button id="btn5" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Modal事件</button>
+    <button id="btn6" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Tab事件</button>
+
+    <p/>
+    <p/>
+    <span style='font-size:20px;font-weight:bold;'>表单</span>
+    <p/>
+    <p/>
+    <button id="btn7" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">表单绘制</button>
+    <button id="btn8" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">设置值</button>
+    <button id="btn9" class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">得到值</button>
+    <p/>
+    <p/>
+    <form action="" id="itemForm1"></form>
+    <p/>
+    <p/>
+    <span style='font-size:20px;font-weight:bold;'>下拉组件</span>
+    <p/>
+    <p/> 待续
+    <p/>
+    <p/>
+    <span style='font-size:20px;font-weight:bold;'>Grid</span>
+    <p/>
+    <p/> 待续
+</body>
+<script>
+    var iframeurl = function () { return "iframetest.html?" + getNowDateInt() };
+    var Modal1;//Hello World 设置窗口大小
+    var Modal2;//最大化窗口 添加按钮
+    var Modal3;//Modal嵌入页签页
+    var Modal4;//页签iframe加载完成后显示Modal
+    var Modal5;//Modal事件
+    var Modal6;//Tab事件
+    var tab1;
+    var tab2;
+    var tab3;
+    var form1;//表单
+    var userdata = [];//测试数据
+    var depdata = [];//测试数据
+
+    $(document).ready(function () {
+        InitModal1();//Hello World 设置窗口大小
+        InitModal2();//最大化窗口 添加按钮
+        InitModal3();//Modal嵌入页签页
+        InitModal4();//页签iframe加载完成后显示Modal
+        InitModal5();//Modal事件
+        InitModal6();//Tab事件
+
+        $("#btn1").click(function () {
+            Modal1.firstInit = false;
+            Modal1.body = "Hello World";//内容
+            Modal1.show();
+        });
+        $("#btn1_1").click(function () {
+            Modal1.show();
+            Modal1.setHeigth("500px");
+            Modal1.setWidth("500px");
+        });
+        $("#btn2").click(function () {
+            Modal2.show();
+        });
+        $("#btn3").click(function () {
+            Modal3.show();
+        });
+        $("#btn4").click(function () {
+            tab2.tabs[0].iframe.attr("src", iframeurl());
+        });
+        $("#btn5").click(function () {
+            Modal5.show();
+        });
+        $("#btn6").click(function () {
+            Modal6.show();
+            tab3.show(1);
+        });
+        //绘制表单
+        $("#btn7").click(function () {
+            InitForm1();
+        });
+        //设置值
+        $("#btn8").click(function () {
+            var data = {
+                "taskCode": "20170101",//单号
+                "taskMakedate": "2017-01-01",//日期
+                "taskMakeuser": "2",//人员
+                "taskMakedep": "1",//部门
+                "tasknub": "30",//数量
+                "taskprice": "3",//价格
+                "taskfield1": "赚了好几万"//备注
+            };
+            form1.SetFormData(data);
+        });
+        //得到值
+        $("#btn9").click(function () {
+            var str = [];
+            var value = form1.GetFormData();
+            for (var v in value) {
+                str.push(v + ":" + value[v]);
+            }
+            Modal1.firstInit = false;
+            Modal1.body = str.join('<p/>');//内容
+            Modal1.show();
+        })
+    });
+    //Hello World 设置窗口大小
+    function InitModal1() {
+        $(document.body).append('<div id="modal1"></div>');
+        Modal1 = new Modal();
+        Modal1.renderto = "#modal1";//绘制到div
+        Modal1.InitMax = false;//是否最大化
+        Modal1.body = "Hello World";//内容
+    }
+    //最大化窗口 添加按钮
+    function InitModal2() {
+        $(document.body).append('<div id="modal2"></div>');
+        Modal2 = new Modal();
+        Modal2.btns = [{ id: "btn_save", text: "保存" }, { id: "closebtn" }];
+        Modal2.InitMax = true;//是否最大化
+        Modal2.renderto = "#modal2";//绘制到div
+        Modal2.body = "Hello World";//内容
+        Modal2.OnfirstInited = function () {//绘制完成后事件
+            $("#btn_save").click(function () {
+                alert("点击保存按钮");
+            })
+        };
+    }
+    //Modal嵌入页签页
+    function InitModal3() {
+        $(document.body).append('<div id="modal3"></div>');
+        Modal3 = new Modal();
+        Modal3.renderto = "#modal3";
+        Modal3.InitShow = true;
+        Modal3.btns = [{ id: "btn1", text: "保存" }, { id: "closebtn" }];
+        tab1 = new Tab();
+        Modal3.OnfirstInited = function (thismodal) {
+            tab1.tabs = [{
+                id: "tabs1", title: "Baidu页面", active: true, isiframe: true, url: iframeurl()
+            }, {
+                id: "tabs2", title: '其他信息', bodyel: "其他信息XXX"
+            }];
+            tab1.renderto = thismodal.body;
+            tab1.Init();
+        }
+    }
+    //页签iframe加载完成后显示Modal
+    function InitModal4() {
+        $(document.body).append('<div id="modal4"></div>');
+        Modal4 = new Modal();
+        Modal4.renderto = "#modal4";
+        Modal4.InitShow = true;
+        Modal4.btns = [{ id: "btn1", text: "保存" }, { id: "closebtn" }];
+        tab2 = new Tab();
+        Modal4.OnfirstInited = function (thismodal) {
+            tab2.tabs = [{
+                id: "tabs3", title: "Baidu页面", active: true, isiframe: true, load: function (thistabs) {
+                    if ($(thistabs).attr('src') && $(thistabs).attr('src') != "" && $(thistabs).attr('src') != "undefined") {
+                        thismodal.show();
+                    }
+                }
+            }, {
+                id: "tabs4", title: '其他信息', showclosebtn: true, bodyel: "其他信息XXX,此页签可以关闭"
+            }];
+            tab2.renderto = thismodal.body;
+            tab2.Init();
+        };
+        Modal4.Init();
+    }
+    //Modal事件
+    function InitModal5() {
+        $(document.body).append('<div id="modal5"></div>');
+        Modal5 = new Modal();
+        Modal5.renderto = "#modal5";//绘制到div
+        Modal5.InitShow = true;
+        Modal5.btns = [{ id: "btn5", text: "保存" }, { id: "closebtn" }];
+        Modal5.body = "Hello World";//内容
+        Modal5.OnfirstInited = function () { alert("绘制完成"); };
+    }
+    //显示事件 注意格式 renderto为绘制的ID ID_+事件名称之间触发，不需要绑定
+    function modal5_Show() {
+        alert("Modal显示");
+    }
+    function modal5_Hide() {
+        alert("Modal开始关闭");
+    }
+    function modal5_Hideend() {
+        alert("Modal关闭完成");
+    }
+    //Tab事件
+    function InitModal6() {
+        $(document.body).append('<div id="modal6"></div>');
+        Modal6 = new Modal();
+        Modal6.renderto = "#modal6";//绘制到div
+        Modal6.InitShow = true;
+        Modal6.btns = [{ id: "btn6", text: "保存" }, { id: "closebtn" }];
+        tab3 = new Tab();
+        Modal6.OnfirstInited = function (thismodal) {
+            tab3.tabs = [{
+                id: "tabs5", title: "Baidu页面", active: true, isiframe: true, load: function (thistabs) {
+                    if ($(thistabs).attr('src') && $(thistabs).attr('src') != "" && $(thistabs).attr('src') != "undefined") {
+                        thismodal.show();
+                    }
+                }
+            }, {
+                id: "tabs6", title: '其他信息', showclosebtn: true, bodyel: "其他信息XXX,此页签可以关闭"
+            }];
+            tab3.renderto = thismodal.body;
+            tab3.Init();
+        }
+    }
+    function tabs6_onactive(t) {
+        alert("页签被激活" + t.isactive(1));
+    }
+    function tabs6_onhide(t) {
+        alert("页签被关闭");
+    }
+
+    //绘制表单
+    function InitForm1() {
+        gettestdata();
+        form1 = new ItemForm('#itemForm1');
+        form1.items = [
+            { type: 'text', name: 'taskCode', title: '单号' },
+            { type: 'datetime', name: 'taskMakedate', title: '制单日期' },
+            { type: 'select', name: 'taskMakeuser', title: '制单人', select: { data: userdata, tree: false } },
+            { type: 'select', name: 'taskMakedep', title: '制单部门', select: { data: depdata, tree: true } },
+            { type: 'numbertxt', name: 'tasknub', title: '数量' },
+            { type: 'floattxt', name: 'taskprice', title: '价格' },
+            { type: 'textarea', name: 'taskfield1', title: '备注', oneline: true }
+        ];//项
+        form1.colunb = 4;//列数
+        form1.init();//开始显示
+    }
+    //得到测试数据
+    function gettestdata() {
+        $.ajax({
+            url: "fromtest_user.json",//json文件位置
+            type: "GET",//请求方式为get
+            dataType: "json", //返回数据格式为json
+            async: false,
+            success: function (data) {//请求成功完成后要执行的方法 
+                userdata = data;
+            }
+        });
+        $.ajax({
+            url: "fromtest_dep.json",//json文件位置
+            type: "GET",//请求方式为get
+            dataType: "json", //返回数据格式为json
+            async: false,
+            success: function (data) {//请求成功完成后要执行的方法 
+                depdata = data;
+            }
+        })
+    }
+</script>

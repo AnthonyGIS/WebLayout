@@ -1,0 +1,45 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>jQuery/CSS3分步骤注册表单切换动画在线演示</title>
+<link rel="stylesheet" media="screen" href="zzsc.css">
+</head>
+<body><form id="msform">
+
+<ul id="progressbar">
+<li class="active">Account Setup</li>
+<li class="active">Social Profiles</li>
+<li>Personal Details</li>
+</ul>
+
+<fieldset style="opacity: 0; transform: scale(0.8); display: none;">
+<h2 class="fs-title">Create your account</h2>
+<h3 class="fs-subtitle">This is step 1</h3>
+<input name="email" placeholder="Email" type="text">
+<input name="pass" placeholder="Password" type="password">
+<input name="cpass" placeholder="Confirm Password" type="password">
+<input name="next" class="next action-button" value="Next" type="button">
+</fieldset>
+<fieldset style="display: block; left: 0%; opacity: 1;">
+<h2 class="fs-title">Social Profiles</h2>
+<h3 class="fs-subtitle">Your presence on the social network</h3>
+<input name="twitter" placeholder="Twitter" type="text">
+<input name="facebook" placeholder="Facebook" type="text">
+<input name="gplus" placeholder="Google Plus" type="text">
+<input name="previous" class="previous action-button" value="Previous" type="button">
+<input name="next" class="next action-button" value="Next" type="button">
+</fieldset>
+<fieldset>
+<h2 class="fs-title">Personal Details</h2>
+<h3 class="fs-subtitle">We will never sell it</h3>
+<input name="fname" placeholder="First Name" type="text">
+<input name="lname" placeholder="Last Name" type="text">
+<input name="phone" placeholder="Phone" type="text">
+<textarea name="address" placeholder="Address"></textarea>
+<input name="previous" class="previous action-button" value="Previous" type="button">
+<input name="submit" class="submit action-button" value="Submit" type="submit">
+</fieldset>
+</form>
+<script src="jquery.js"></script><script src="jquery_002.js"></script>
+<script src="jquery_003.js" type="text/javascript"></script>
+<script src="zzsc.js" type="text/javascript"></script>
+</body></html>
