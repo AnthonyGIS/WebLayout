@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>系统登录</title>
+    <link href="login.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+    <link href="demo.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="jquery1.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="Validform_v5.js"></script>
+    <script src="index_2.js"></script>
+</head>
+<body>
+
+<div class="header">
+    <h1 class="headerLogo"><a title="后台管理系统" target="_blank" href="http://www.jq22.com/"><img alt="logo" src="logo.gif"></a>
+    </h1>
+    <div class="headerNav">
+        <a target="_blank" href="http://www.hhch.org.cn/">ZJEMCS官网</a>
+        <a target="_blank"
+           href="https://baike.baidu.com/item/%E6%B5%99%E6%B1%9F%E7%9C%81%E6%B2%B3%E6%B5%B7%E6%B5%8B%E7%BB%98%E9%99%A2/4710569">关于浙江省河海测绘院</a>
+        <a target="_blank" href="http://www.hhch.org.cn/">开发团队</a>
+        <a target="_blank" href="http://www.hhch.org.cn/">意见反馈</a>
+        <a target="_blank" href="http://www.hhch.org.cn/">帮助</a>
+    </div>
+</div>
+<div class="banner">
+    <div class="login-aside">
+        <div id="o-box-up"></div>
+        <div id="o-box-down" style="table-layout:fixed;">
+            <div class="error-box Validform_checktip Validform_wrong">请设置密码！</div>
+            <form class="registerform" action="demo/ajax_post.jsp">
+                <div class="fm-item">
+                    <label for="logonId" class="form-label">UFMS系统登陆：</label>
+                    <input value="输入账号" maxlength="100" id="username" class="i-text Validform_error"
+                           ajaxurl="demo/valid.jsp" datatype="s6-18" errormsg="用户名至少6个字符,最多18个字符！" nullmsg="请填写信息！"
+                           type="text">
+                    <div class="ui-form-explain"></div>
+                </div>
+                <div class="fm-item">
+                    <label for="logonId" class="form-label">登陆密码：</label>
+                    <input value="" maxlength="100" id="password" class="i-text Validform_error" datatype="*6-16"
+                           nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" type="password">
+                    <div class="ui-form-explain"></div>
+                </div>
+                <div class="fm-item pos-r">
+                    <label for="logonId" class="form-label">验证码</label>
+                    <input value="输入验证码" maxlength="100" id="yzm" class="i-text yzm" nullmsg="请输入验证码！" type="text">
+                    <div class="ui-form-explain"><img src="yzm.jpg" class="yzm-img"></div>
+                </div>
+                <div class="fm-item">
+                    <label for="logonId" class="form-label"></label>
+                    <input value="" tabindex="4" id="send-btn" class="btn-login" type="submit">
+                    <div class="ui-form-explain"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="bd">
+        <ul style="position: relative; width: 1536px; height: 478px;">
+            <li style="background: rgb(204, 225, 243) url(&quot;themes/theme-pic1.jpg&quot;) no-repeat scroll center 0px; position: absolute; width: 1536px; left: 0px; top: 0px; display: none;">
+                <a target="_blank" href="http://www.jq22.com/"></a></li>
+            <li style="background: rgb(188, 224, 255) url(&quot;themes/theme-pic2.jpg&quot;) no-repeat scroll center 0px; position: absolute; width: 1536px; left: 0px; top: 0px; display: list-item;">
+                <a target="_blank" href="http://www.jq22.com/"></a></li>
+        </ul>
+    </div>
+    <div class="hd">
+        <ul>
+            <li class="">1</li>
+            <li class="on">2</li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">jQuery(".banner").slide({
+    titCell: ".hd ul",
+    mainCell: ".bd ul",
+    effect: "fold",
+    autoPlay: true,
+    autoPage: true,
+    trigger: "click"
+});</script>
+<div class="banner-shadow"></div>
+
+
+</body>
+</html>

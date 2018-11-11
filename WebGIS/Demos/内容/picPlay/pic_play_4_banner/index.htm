@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="entypo.css">
+    <script src="jquery.js"></script>
+    <script src="hammer.js"></script>
+    <script src="slider.js"></script>
+
+</head>
+
+<div class="o-sliderContainer" id="pbSliderWrap0" style="margin-top: 0px; touch-action: pan-x; height: 500px;">
+    <div class="o-slider isDraggable isVisible" id="pbSlider0"
+         style="width: 600%; perspective: 1000px; backface-visibility: hidden; transform: translateX(-50%);">
+        <div class="o-slider--item" data-image="images/5.jpg"
+             style="width: 16.6667%; background-image: url(images/5.jpg); height: 500px;" data-id="slide-0">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">Mount River of the Place</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">It may just lived in your dream ever.</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="images/6.jpg"
+             style="width: 16.6667%; background-image: url(images/6.jpg); height: 500px;" data-id="slide-1">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">This is a title</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">This is a sub title</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="images/1.jpg"
+             style="width: 16.6667%; background-image: url(images/1.jpg); height: 500px;" data-id="slide-2">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">This is a title</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">This is a sub title</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+        <div class="o-slider--item isActive" data-image="images/2.jpg"
+             style="width: 16.6667%; background-image: url(images/2.jpg); height: 500px;" data-id="slide-3">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">This is a title</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">This is a sub title</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="images/3.jpg"
+             style="width: 16.6667%; background-image: url(images/3.jpg); height: 500px;" data-id="slide-4">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">This is a title</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">This is a sub title</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="images/4.jpg"
+             style="width: 16.6667%; background-image: url(images/4.jpg); height: 500px;" data-id="slide-5">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">This is a title</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle">This is a sub title</h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph">This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph This is a sub
+                    paragraph This is a sub paragraph This is a sub paragraph </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Content FIRST-->
+<pre class="pre">&lt;script&gt;
+  $('#pbSlider0').pbTouchSlider({
+    slider_Wrap: '#pbSliderWrap0',
+    slider_Threshold: 10,
+    slider_Speed:600,
+    slider_Ease:'ease-out',
+    slider_Drag : true,
+    slider_Arrows: {
+      enabled : true
+    },
+    slider_Dots: {
+      class :'.o-slider-pagination',
+      enabled : true,
+      preview : false
+    },
+    slider_Breakpoints: {
+        default: {
+            height: 500
+        },
+        tablet: {
+            height: 350,
+            media: 1024
+        },
+        smartphone: {
+            height: 250,
+            media: 768
+        }
+    }
+  });
+  &lt;/script&gt;
+</pre>
+<div style="clear:both;"></div>
+<div class="a-container">
+    <h1>Touch slider jquery Plugin</h1>
+    <div class="a-1_2">
+        <div class="o-sliderContainer hasShadow" id="pbSliderWrap" style="height: 300px;">
+            <div class="o-slider isVisible" id="pbSlider" style="width: 600%;">
+                <div class="o-slider--item isActive" data-image="images/5.jpg"
+                     style="width: 16.6667%; background-image: url(images/5.jpg); height: 300px;"
+                     data-id="slide-0"></div>
+                <div class="o-slider--item" data-image="images/6.jpg"
+                     style="width: 16.6667%; background-image: url(images/6.jpg); height: 300px;"
+                     data-id="slide-1"></div>
+                <div class="o-slider--item" data-image="images/1.jpg"
+                     style="width: 16.6667%; background-image: url(images/1.jpg); height: 300px;"
+                     data-id="slide-2"></div>
+                <div class="o-slider--item" data-image="images/2.jpg"
+                     style="width: 16.6667%; background-image: url(images/2.jpg); height: 300px;"
+                     data-id="slide-3"></div>
+                <div class="o-slider--item" data-image="images/3.jpg"
+                     style="width: 16.6667%; background-image: url(images/3.jpg); height: 300px;"
+                     data-id="slide-4"></div>
+                <div class="o-slider--item" data-image="images/4.jpg"
+                     style="width: 16.6667%; background-image: url(images/4.jpg); height: 300px;"
+                     data-id="slide-5"></div>
+            </div>
+        </div>
+
+
+        <pre class="pre">&lt;script&gt;
+    $('#pbSlider').pbTouchSlider({
+      slider_Wrap: '#pbSliderWrap',
+      slider_Threshold: 50,
+      slider_Speed:400,
+      slider_Ease:'linear',
+      slider_Drag : false,
+      slider_Arrows: {
+        enabled : false
+      },
+      slider_Breakpoints: {
+          default: {
+              height: 300
+          },
+          tablet: {
+              height: 250,
+              media: 1024
+          },
+          smartphone: {
+              height: 200,
+              media: 768
+          }
+      }
+    });
+    &lt;/script&gt;
+    </pre>
+    </div>
+    <div class="a-1_2">
+        <div class="o-sliderContainer hasShadow" id="pbSliderWrap2" style="touch-action: pan-x; height: 300px;">
+            <div class="o-slider isDraggable isVisible" id="pbSlider2" style="width: 600%;">
+                <div class="o-slider--item isActive" data-image="images/3.jpg"
+                     style="width: 16.6667%; background-image: url(images/3.jpg); height: 300px;"
+                     data-id="slide-0">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+                <div class="o-slider--item" data-image="images/4.jpg"
+                     style="width: 16.6667%; background-image: url(images/4.jpg); height: 300px;"
+                     data-id="slide-1">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+                <div class="o-slider--item" data-image="images/5.jpg"
+                     style="width: 16.6667%; background-image: url(images/5.jpg); height: 300px;"
+                     data-id="slide-2">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+                <div class="o-slider--item" data-image="images/1.jpg"
+                     style="width: 16.6667%; background-image: url(images/1.jpg); height: 300px;"
+                     data-id="slide-3">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+                <div class="o-slider--item" data-image="images/2.jpg"
+                     style="width: 16.6667%; background-image: url(images/2.jpg); height: 300px;"
+                     data-id="slide-4">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+                <div class="o-slider--item" data-image="images/6.jpg"
+                     style="width: 16.6667%; background-image: url(images/6.jpg); height: 300px;"
+                     data-id="slide-5">
+                    <div class="o-slider-textWrap">
+                        <h1 class="o-slider-title">This is a title</h1>
+                        <span class="a-divider"></span>
+                        <h2 class="o-slider-subTitle">This is a sub title</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="loaderWrap" style="display: none;">
+                <div class="ball-scale-multiple">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="o-slider-controls isVisible"></div>
+            <ul class="o-slider-arrows">
+                <li class="o-slider-prev isDisabled"><i class="icon-left-open-big"></i></li>
+                <li class="o-slider-next"><i class="icon-right-open-big"></i></li>
+            </ul>
+        </div>
+        <pre class="pre">    &lt;script&gt;
+    $('#pbSlider2').pbTouchSlider({
+      slider_Wrap: '#pbSliderWrap2',
+      slider_Threshold: 25,
+      slider_Speed:1000 ,
+      slider_Ease:'cubic-bezier(.16,.92,0,.8)',
+      slider_Dots: {
+        class:'.slider-pagination',
+        enabled : false
+      },
+      slider_Breakpoints: {
+          default: {
+              height: 300
+          },
+          tablet: {
+              height: 250,
+              media: 1024
+          },
+          smartphone: {
+              height: 200,
+              media: 768
+          }
+      }
+    });
+    &lt;/script&gt;
+  </pre>
+    </div>
+    <div class="o-sliderContainer hasShadow " id="pbSliderWrap3" style="touch-action: pan-x; height: 400px;">
+        <div class="o-slider isDraggable isVisible" id="pbSlider3" style="width: 600%;">
+            <div class="o-slider--item isActive" data-image="images/1.jpg"
+                 style="width: 16.6667%; background-image: url(images/1.jpg); height: 400px;"
+                 data-id="slide-0">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+            <div class="o-slider--item" data-image="images/2.jpg"
+                 style="width: 16.6667%; background-image: url(images/2.jpg); height: 400px;"
+                 data-id="slide-1">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+            <div class="o-slider--item" data-image="images/3.jpg"
+                 style="width: 16.6667%; background-image: url(images/3.jpg); height: 400px;"
+                 data-id="slide-2">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+            <div class="o-slider--item" data-image="images/4.jpg"
+                 style="width: 16.6667%; background-image: url(images/4.jpg); height: 400px;"
+                 data-id="slide-3">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+            <div class="o-slider--item" data-image="images/5.jpg"
+                 style="width: 16.6667%; background-image: url(images/5.jpg); height: 400px;"
+                 data-id="slide-4">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+            <div class="o-slider--item" data-image="images/6.jpg"
+                 style="width: 16.6667%; background-image: url(images/6.jpg); height: 400px;"
+                 data-id="slide-5">
+                <div class="o-slider-textWrap">
+                    <h1 class="o-slider-title">This is a title</h1>
+                    <span class="a-divider"></span>
+                    <h2 class="o-slider-subTitle">This is a sub title</h2>
+                </div>
+            </div>
+        </div>
+        <div class="loaderWrap" style="display: none;">
+            <ul class="o-slider-pagination">
+                <li class="isActive" data-increase="0"><span class="o-slider--preview"
+                                            style="background-image:url(images/1.jpg)"></span></li>
+                <li data-increase="1"><span class="o-slider--preview"
+                                            style="background-image:url(images/2.jpg)"></span> </li>
+                <li data-increase="2"><span class="o-slider--preview"
+                                            style="background-image:url(images/3.jpg)"></span></li>
+                <li data-increase="3"><span class="o-slider--preview"
+                                            style="background-image:url(images/4.jpg)"></span></li>
+                <li data-increase="4"><span class="o-slider--preview"
+                                            style="background-image:url(images/5.jpg)"></span></li>
+                <li data-increase="5"><span class="o-slider--preview"
+                                            style="background-image:url(images/6.jpg)"></span></li>
+            </ul>
+        </div>
+        <pre class="pre">    &lt;script&gt;
+            $('#pbSlider3').pbTouchSlider({
+                  slider_Wrap: '#pbSliderWrap3',
+                  slider_Threshold: 50 ,
+                  slider_Speed:400 ,
+                  slider_Ease:'linear',
+                  slider_Breakpoints: {
+                      default: {
+                          height: 400
+                      },
+                      tablet: {
+                          height: 300,
+                          media: 1024
+                      },
+                      smartphone: {
+                          height: 200,
+                          media: 768
+                      }
+                  }
+                });
+                &lt;/script&gt;
+  </pre>
+    </div>
+    </body>
+</div>
+</html>
+<script src="index.js"></script>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script src="jquery_002.js"></script>
+    <style>
+        * {
+            font-family:"宋体",serif;
+            margin: 0;
+        }
+        body {
+            background-color: #262626;
+        }
+        </style>
+
+    <script language="javascript" type="text/javascript" src="index.js" charset="gb2312"></script>
+</head>
+<body>
+<p></p>
+<p></p>
+<div id="box" style="width: 1000px; height: 400px; position: relative; margin: 0 auto;"></div>
+<script src="picMove.js"></script>
+<script>
+    $(document).ready(function () {
+        var list = [{
+            imgUrl: 'img/a1.png',
+            href: '#'
+        }, {
+            imgUrl: 'img/a2.png',
+            href: '#'
+        }, {
+            imgUrl: 'img/a3.png',
+            href: '#'
+        }, {
+            imgUrl: 'img/a4.png',
+            href: '#'
+        }, {
+            imgUrl: 'img/a5.png',
+            href: '#'
+        }, {
+            imgUrl: 'img/a6.png',
+            href: '#'
+        }];
+        $('#box').fade({
+            url: list,
+            boxWid: 1000,
+            boxHei: 400
+        }).css({
+            margin: '0 auto'
+        })
+    });
+</script>
+</body>
+</html>

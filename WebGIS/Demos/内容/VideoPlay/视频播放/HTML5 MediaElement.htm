@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTML5 MediaElement</title>
+<script src="HTML5%20MediaElement_files/jquery.js"></script>
+<script src="HTML5%20MediaElement_files/mediaelement-and-player.js"></script>
+<link rel="stylesheet" href="HTML5%20MediaElement_files/mediaelementplayer.css">
+
+<script language="javascript" type="text/javascript" src="HTML5%20MediaElement_files/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script id="__EF0D49F1DA55F3D3C2CA27010025F7A9" src="HTML5%20MediaElement_files/a.txt"></script><script type="text/javascript">
+hQGHuMEAyLn('.adsbygoogle,.fdad,.inner > .add');</script></head>
+<body><style>.inner > .add{display:none;position:absolute;top:-1000000px;visibility:hidden}.fdad,.adsbygoogle{display:none;position:absolute;top:-1000000px;visibility:hidden}</style>
+<h1>MediaElementPlayer.js</h1>
+<h2>1. Single MP4 File</h2>
+<code><pre>&lt;video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4" 
+
+	id="player1" poster="../media/echo-hereweare.jpg" 
+
+	controls="controls" preload="none"&gt;&lt;/video&gt;
+
+</pre></code>
+
+<span class="mejs-offscreen">Video Player</span><div id="mep_0" class="mejs-container svg mejs-video" tabindex="0" role="application" aria-label="Video Player" style="width: 640px; height: 360px;"><div class="mejs-inner"><div class="mejs-mediaelement"><video src="HTML5%20MediaElement_files/echo-hereweare.mp4" type="video/mp4" id="player1" poster="../media/echo-hereweare.jpg" preload="none" width="640" height="360"></video></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="background-image: url(&quot;../media/echo-hereweare.jpg&quot;); width: 640px; height: 360px;"><img src="HTML5%20MediaElement_files/echo-hereweare.jpg" width="100%" height="100%"></div><div class="mejs-overlay mejs-layer" style="display: none; width: 640px; height: 360px;"><div class="mejs-overlay-loading"><span></span></div></div><div class="mejs-overlay mejs-layer" style="display: none; width: 640px; height: 360px;"><div class="mejs-overlay-error"></div></div><div class="mejs-overlay mejs-layer mejs-overlay-play" style="width: 640px; height: 330px;"><div class="mejs-overlay-button" style="margin-top: -35px;"></div></div></div><div class="mejs-controls"><div class="mejs-button mejs-playpause-button mejs-play"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div class="mejs-time mejs-currenttime-container" role="timer" aria-live="off"><span class="mejs-currenttime">00:00</span></div><div class="mejs-time-rail" style="width: 492px;"><span class="mejs-time-total mejs-time-slider" style="width: 482px;"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded"></span><span class="mejs-time-current"></span><span class="mejs-time-handle"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time mejs-duration-container"><span class="mejs-duration">00:00</span></div><div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_0" title="Mute" aria-label="Mute"></button><a href="javascript:void(0);" class="mejs-volume-slider" style="display: none;" aria-label="volumeSlider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80%" role="slider" tabindex="0"><span class="mejs-offscreen">Use Up/Down Arrow keys to increase or decrease volume.</span><div class="mejs-volume-total"></div><div class="mejs-volume-current" style="height: 80px; top: 28px;"></div><div class="mejs-volume-handle" style="top: 25px;"></div></a></div><div class="mejs-button mejs-fullscreen-button"><button type="button" aria-controls="mep_0" title="Fullscreen" aria-label="Fullscreen"></button></div></div><div class="mejs-clear"></div></div></div>
+<span id="player1-mode">mode: native</span>
+<p><b>Note</b>: if you are working with local files, you'll need to add your working directory
+to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">Flash Global Security Settings</a>.</p>
+<h2>2. Multi-Codec with no JavaScript fallback player</h2>
+<code><pre>&lt;video width="640" height="360" id="player2" poster="../media/echo-hereweare.jpg" controls="controls" preload="none"&gt;
+
+	&lt;!-- MP4 source must come first for iOS --&gt;
+
+	&lt;source type="video/mp4" src="../media/echo-hereweare.mp4" /&gt;
+
+	&lt;!-- WebM for Firefox 4 and Opera --&gt;
+
+	&lt;source type="video/webm" src="../media/echo-hereweare.webm" /&gt;
+
+	&lt;!-- OGG for Firefox 3 --&gt;
+
+	&lt;source type="video/ogg" src="../media/echo-hereweare.ogv" /&gt;
+
+	&lt;!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off --&gt;
+
+	&lt;object width="640" height="360" type="application/x-shockwave-flash" data="../build/flashmediaelement.swf"&gt; 		
+
+		&lt;param name="movie" value="../build/flashmediaelement.swf" /&gt; 
+
+		&lt;param name="flashvars" value="controls=true&amp;poster=../media/echo-hereweare.jpg&amp;file=../media/echo-hereweare.mp4" /&gt; 		
+
+		&lt;!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed --&gt;
+
+		&lt;img src="../media/echo-hereweare.jpg" width="640" height="360" alt="Here we are" 
+
+			title="No video playback capabilities" /&gt;
+
+	&lt;/object&gt; 	
+
+&lt;/video&gt;
+
+</pre></code>
+<span class="mejs-offscreen">Video Player</span><div id="mep_1" class="mejs-container svg mejs-video" tabindex="0" role="application" aria-label="Video Player" style="width: 640px; height: 360px;"><div class="mejs-inner"><div class="mejs-mediaelement"><video id="player2" poster="../media/echo-hereweare.jpg" preload="none" src="HTML5%20MediaElement_files/echo-hereweare.mp4" width="640" height="360">
+
+<source type="video/mp4" src="HTML5%20MediaElement_files/echo-hereweare.mp4">
+
+<source type="video/webm" src="HTML5%20MediaElement_files/echo-hereweare_002.htm">
+
+<source type="video/ogg" src="HTML5%20MediaElement_files/echo-hereweare.htm">
+
+<object type="application/x-shockwave-flash" data="HTML5%20MediaElement_files/flashmediaelement.swf" width="640" height="360">
+<param name="movie" value="../build/flashmediaelement.swf">
+<param name="flashvars" value="controls=true&amp;file=../media/echo-hereweare.mp4">
+
+<img src="HTML5%20MediaElement_files/echo-hereweare.jpg" alt="Here we are" title="No video playback capabilities" width="640" height="360">
+</object>
+</video></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="background-image: url(&quot;../media/echo-hereweare.jpg&quot;); width: 640px; height: 360px;"><img src="HTML5%20MediaElement_files/echo-hereweare.jpg" width="100%" height="100%"></div><div class="mejs-overlay mejs-layer" style="display: none; width: 640px; height: 360px;"><div class="mejs-overlay-loading"><span></span></div></div><div class="mejs-overlay mejs-layer" style="display: none; width: 640px; height: 360px;"><div class="mejs-overlay-error"></div></div><div class="mejs-overlay mejs-layer mejs-overlay-play" style="width: 640px; height: 330px;"><div class="mejs-overlay-button" style="margin-top: -35px;"></div></div></div><div class="mejs-controls"><div class="mejs-button mejs-playpause-button mejs-play"><button type="button" aria-controls="mep_1" title="Play" aria-label="Play"></button></div><div class="mejs-time mejs-currenttime-container" role="timer" aria-live="off"><span class="mejs-currenttime">00:00</span></div><div class="mejs-time-rail" style="width: 492px;"><span class="mejs-time-total mejs-time-slider" style="width: 482px;"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded"></span><span class="mejs-time-current"></span><span class="mejs-time-handle"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time mejs-duration-container"><span class="mejs-duration">00:00</span></div><div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_1" title="Mute" aria-label="Mute"></button><a href="javascript:void(0);" class="mejs-volume-slider" style="display: none;" aria-label="volumeSlider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80%" role="slider" tabindex="0"><span class="mejs-offscreen">Use Up/Down Arrow keys to increase or decrease volume.</span><div class="mejs-volume-total"></div><div class="mejs-volume-current" style="height: 80px; top: 28px;"></div><div class="mejs-volume-handle" style="top: 25px;"></div></a></div><div class="mejs-button mejs-fullscreen-button"><button type="button" aria-controls="mep_1" title="Fullscreen" aria-label="Fullscreen"></button></div></div><div class="mejs-clear"></div></div></div>
+<span id="player2-mode">mode: native</span>
+<script>
+
+
+
+$('audio,video').mediaelementplayer({
+
+	//mode: 'shim',
+
+	success: function(player, node) {
+
+		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+
+	}
+
+});
+
+
+
+</script>
+<input id="stopall" value="Stop all" type="button">
+<script>
+
+$('#stopall').click(function() {
+
+    $('video, audio').each(function() {
+
+          $(this)[0].player.pause();		  
+
+    });
+
+});
+
+</script>
+
+</body></html>

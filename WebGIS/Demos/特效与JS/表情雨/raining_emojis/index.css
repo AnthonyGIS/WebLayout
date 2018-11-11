@@ -1,0 +1,13 @@
+.inner > .add {
+    display: none;
+    position: absolute;
+    top: -1000000px;
+    visibility: hidden
+}
+
+.fdad, .adsbygoogle {
+    display: none;
+    position: absolute;
+    top: -1000000px;
+    visibility: hidden
+}

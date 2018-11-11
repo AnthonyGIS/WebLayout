@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bdd7bf79-8a70-4093-8278-86291499f045" name="WebLayout" url="http://localhost:8082/Gramma_Primary/WebLayout">
+        <fileTransfer port="0" mountedRoot="D:\Program\apache-tomcat-9.0.10\webapps\Gramma_Primary\WebLayout" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
