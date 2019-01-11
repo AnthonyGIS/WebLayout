@@ -3,9 +3,11 @@
     <words>
       <w>amap</w>
       <w>autoclose</w>
+      <w>autofade</w>
       <w>baidu</w>
       <w>beforeend</w>
       <w>csstransitions</w>
+      <w>defaultparams</w>
       <w>delbtn</w>
       <w>disp</w>
       <w>docx</w>
@@ -15,6 +17,8 @@
       <w>filesize</w>
       <w>getlat</w>
       <w>getlng</w>
+      <w>gramma</w>
+      <w>htmleaf</w>
       <w>imgs</w>
       <w>konqueror</w>
       <w>manualclose</w>

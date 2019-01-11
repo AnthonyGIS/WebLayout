@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>侧边滑出弹层插件--mSlider.js</title>
+    <style>
+        button:hover {
+            cursor: pointer;
+        }
+
+        h4 {
+            margin: 50px 0 10px 0;
+        }
+
+        .wrap > div {
+            opacity: 0;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 640px) {
+            button {
+                width: 100%;
+                margin: 2% auto;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--菜单-->
+<div class="container">
+    <h2>侧边滑出弹层插件--mSlider.js</h2>
+    <h4>方向：</h4>
+    <button id="btnLeft">左</button>
+    <button id="btnRight">右</button>
+    <button id="btnTop">上</button>
+    <button id="btnBottom">下</button>
+    <h4>关闭：</h4>
+    <button id="btnAutoClose">自动</button>
+    <button id="btnManualClose">手动</button>
+    <h4>嵌套：</h4>
+    <button id="btnParent">第1层</button>
+</div>
+<div class="wrap"></div>
+
+<!--Jump out undisplayed divs-->
+<!--
+<div class="MSlider-main ms-c9o0je"
+     style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99;">
+    <div class="MSlider-inner" style="position: absolute; top: 0; left: 0; width: 30%; height: 200px;
+                background-color: rgb(255, 255, 255); transform: translate3d(-100%, 0px, 0px);
+                transition: all 0.2s ease-out 0s; z-index: 100;">
+        <div class="layer-left">
+            <h3>左侧弹层内容...</h3>
+        </div>
+    </div>
+    <div class="MSlider-mask"
+         style="width: 100%; height: 100%; opacity: 0; background-color: black; z-index: 98; transition: all 0.2s ease-out 0s; backface-visibility: hidden;"></div>
+</div>
+-->
+
+<div class="layer-left">
+    <h3>左侧弹层内容...</h3>
+</div>
+<div class="layer-right">
+    <h3>右侧弹层内容...</h3>
+</div>
+<div class="layer-top">
+    <h3>上侧弹层内容...</h3>
+</div>
+<div class="layer-bottom">
+    <h3>下侧弹层内容...</h3>
+</div>
+<div class="layer-selfclose">
+    <h3>1秒自动关闭！</h3>
+</div>
+<div class="layer-manualclose">
+    <h3>点击右侧进行
+        <button id="btnClose">关闭</button>
+    </h3>
+</div>
+<div class="layer-parent">
+    <h3>我是第1层
+        <button id="btnChild">调用第2层</button>
+    </h3>
+</div>
+<div class="layer-child">
+    <h3>我是第2层</h3>
+</div>
+</body>
+</html>
+<script src="MSlider.js"></script>
+<script src="index.js"></script>
+
