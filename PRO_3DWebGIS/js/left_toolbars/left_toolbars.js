@@ -72,17 +72,18 @@ $(document).ready(function () {
         var _st = $.cookie("fixed"); // 获取Cookie值
         if (!_st) _st = 0;
         var _code = '<div id="fixed" ><dl>' +
-            '<dd><a href="#" class="web">列表</a></dd> ' +
-            '<dd><a href="#" class="mb">项目查询</a></dd>' +
-            '<dd><a href="#" target="_blank" class="dj">成果查询</a></dd>' +
-            '<dd><a href="#" target="_blank" class="mh">项目空间查询</a></dd>' +
-            '<dd><a href="#" class="dh">无人机航线查询</a></dd>' +
-            '<dd><a href="http://www.jq22.com/demo/jQuery-nav-150326225206/" class="pk165">文件列表</a></dd>' +
-            '<dd><a href="#" class="w267">帮助</a></dd>' +
+            '<dd><a href="#" class="web">Main</a></dd> ' +
+            '<dd><a href="#" class="mb">项目</a></dd>' +
+            '<dd><a href="#" target="_blank" class="dj">成果</a></dd>' +
+            '<dd><a href="#" target="_blank" class="mh">范围</a></dd>' +
+            '<dd><a href="#" class="dh">UAV</a></dd>' +
+            '<dd><a href="http://www.jq22.com/demo/jQuery-nav-150326225206/" class="pk165">Source</a></dd>' +
+            '<dd><a href="#" class="w267">Help</a></dd>' +
             '<dt><a href="#" class="close" ></a></dt>' +
             '</dl></div>';
 
-        if (_st === 1) {  // 隐藏
+        if (_st == 1) {
+            // 隐藏
             $(_code).hide().appendTo("body").fixed({x: -44, y: 0}).fadeIn(500);
             $("#fixed dt a.close").width('68px');
         } else {  // 展现

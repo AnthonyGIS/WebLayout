@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>列表输出</title>
+    <script src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>TEST 1</p>
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ul>
+</div>
+<div>
+    <p>TEST 2</p>
+    <ul id="test2">
+        <li v-for="item in items">
+            {{ parentMessage }} - {{ $index }} - {{ item.message }}
+        </li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            todos: [
+                { text: 'sunlab' },
+                { text: 'sunlab.xyz' },
+                { text: 'good night' }
+            ]
+        }
+    })
+
+    var example2 = new Vue({
+        el: '#test2',
+        data: {
+            parentMessage: 'test',
+            items: [
+                { message: 'xxxx.com' },
+                { message: 'yyyy.com' }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

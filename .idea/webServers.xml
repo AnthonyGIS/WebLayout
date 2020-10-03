@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="bdd7bf79-8a70-4093-8278-86291499f045" name="WebLayout" url="http://localhost:8082/M1_WebDesign">
-        <fileTransfer port="0" mountedRoot="D:\Program\apache-tomcat-9.0.10\webapps\M1_WebDesign" accessType="MOUNT" />
+      <webServer id="bdd7bf79-8a70-4093-8278-86291499f045" name="WebLayout" url="http://localhost:8090/D3_WebGIS/M1_WebDesign">
+        <fileTransfer mountedRoot="D:\Pros\IDE\apache-tomcat-10.0.0-M8\webapps\D3_WebGIS\M1_WebDesign" accessType="MOUNT" port="0" />
       </webServer>
     </option>
   </component>

@@ -1,9 +1,10 @@
 # Main 1 Web Design
-WebLayout
-web layout and js learning's  tested projects
+This is a learning test project. It contains, web page layout, and js projects of application use propose.
 
+## about  directory details
 
-
-L, 代表Library
-D, 代表测试项目或目录
-PRO,代表工程
+| no   | dir prefix | meaning                   |
+| ---- | ---------- | ------------------------- |
+| 1    | L          | starnds for a library     |
+| 2    | D          | test project or directory |
+| 3    | PRO        | projects                  |
