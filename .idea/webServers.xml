@@ -2,8 +2,15 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="bdd7bf79-8a70-4093-8278-86291499f045" name="WebLayout" url="http://localhost:8090/D3_WebGIS/M1_WebDesign">
-        <fileTransfer mountedRoot="D:\Pros\IDE\apache-tomcat-10.0.0-M8\webapps\D3_WebGIS\M1_WebDesign" accessType="MOUNT" port="0" />
+      <webServer id="bdd7bf79-8a70-4093-8278-86291499f045" name="local_WebLayout" url="http://localhost:8090/D3_WebGIS/M1_WebDesign">
+        <fileTransfer mountedRoot="D:\Pros\IDE\apache-tomcat-10.0.2\webapps\D3_WebGIS\M1_WebDesign" accessType="MOUNT" port="0" />
+      </webServer>
+      <webServer id="63f2b373-0a6f-4ebf-8707-f18d68329dc5" name="remote_raspberry_pi" url="http://192.168.10.106:8080/MYAPPS/test_helloword/">
+        <fileTransfer rootFolder="/opt/apache-tomcat-10.0.20/webapps/MYAPPS/test_helloword" accessType="SFTP" host="192.168.10.106" port="22" sshConfigId="427d5c9a-5ab5-4d6d-bd9b-e3cb7c16885c" sshConfig="root@192.168.10.106:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
       </webServer>
     </option>
   </component>
